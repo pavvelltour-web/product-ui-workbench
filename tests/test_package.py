@@ -16,8 +16,15 @@ class PackageTests(unittest.TestCase):
             self.assertEqual(result.returncode,0,result.stdout+result.stderr)
             with zipfile.ZipFile(archive) as package:
                 names=package.namelist(); self.assertIn('workbench.json',names); self.assertIn('SKILL.md',names); self.assertIn('scripts/install.py',names); self.assertIn('references/implementation.md',names)
-                self.assertFalse(any('.git' in Path(n).parts or '.github' in Path(n).parts or 'private' in Path(n).parts or '__pycache__' in Path(n).parts or n.endswith('.png') for n in names))
+                self.assertFalse(any('.git' in Path(n).parts or '.github' in Path(n).parts or 'private' in Path(n).parts or '__pycache__' in Path(n).parts or 'dist' in Path(n).parts or 'node_modules' in Path(n).parts for n in names))
+                assets=json.loads(package.read('examples/showcase/assets.json'))['assets']
+                approved_pngs={item['path'] for item in assets if item['kind']=='png'}
+                self.assertTrue(approved_pngs)
+                self.assertEqual({n for n in names if n.endswith('.png')},approved_pngs)
+                self.assertEqual({n for n in names if n.endswith('.ttf')},{item['path'] for item in assets if item['kind']=='ttf'})
                 package.extractall(temp/'extracted')
+            public_check=subprocess.run([sys.executable,str(temp/'extracted/scripts/check_public.py')],capture_output=True,text=True)
+            self.assertEqual(public_check.returncode,0,public_check.stdout+public_check.stderr)
             installed=temp/'installed-skill'
             install_result=subprocess.run([sys.executable,str(temp/'extracted/scripts/install.py'),'--host','codex','--destination',str(installed)],capture_output=True,text=True)
             self.assertEqual(install_result.returncode,0,install_result.stdout+install_result.stderr)

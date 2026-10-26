@@ -630,8 +630,8 @@
     },
     {
       "path": "tests/test_package.py",
-      "sha256": "16322e86b8707816f57a818d4c4641a296f8612ba6bfee7bd3d1676e28b215fa",
-      "bytes": 2244
+      "sha256": "f63337676dc8354cc26986e7ffb32d9b3b1bc1b02a6f4e1c6b4fcd2d323eb3ef",
+      "bytes": 2960
     },
     {
       "path": "tests/test_pattern_catalog.py",
