@@ -57,6 +57,7 @@ jobs:
               if executable is None:
                   subprocess.run([sys.executable, '-m', 'playwright', 'install', '--with-deps', 'chromium'], check=True, timeout=240)
                   executable=p.chromium.executable_path
+              executable=str(Path(executable).resolve(strict=True))
               assert Path(executable).is_file()
               browser=p.chromium.launch(executable_path=executable, headless=True)
               browser.close()
