@@ -11,6 +11,8 @@ import unittest
 ROOT = Path(__file__).resolve().parents[1]
 sys.path.insert(0, str(ROOT / 'scripts'))
 from pipeline import GateError, canonical_workspace, closure_files, file_record, safe, validate_closure
+from _payload import check_ancestors, payload_paths
+from demo import create as create_demo
 
 
 def windows_short_path(path):
@@ -119,6 +121,56 @@ class WindowsShortPathTests(unittest.TestCase):
         self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
         self.assertTrue((self.root / 'campaigns/alias/campaign.json').is_file())
         self.assertFalse((self.root / '.pipeline-lock').exists())
+
+
+@unittest.skipUnless(os.name == 'nt', 'Windows junction regression requires Windows')
+class WindowsJunctionTests(unittest.TestCase):
+    def setUp(self):
+        self.temp = tempfile.TemporaryDirectory(prefix='workbench-junction-')
+        self.root = Path(self.temp.name).resolve()
+        self.addCleanup(self.temp.cleanup)
+        self.real = self.root / 'real'
+        self.real.mkdir()
+        self.alias = self.root / 'library'
+        self.make_junction(self.alias)
+
+    def make_junction(self, path):
+        result = subprocess.run(['cmd.exe', '/d', '/c', 'mklink', '/J', str(path), str(self.real)],
+                                capture_output=True)
+        self.assertEqual(result.returncode, 0, result.stdout + result.stderr)
+        self.assertTrue(path.lstat().st_file_attributes & 0x400)
+        # Remove only this fixture's junction entry before TemporaryDirectory cleanup.
+        self.addCleanup(path.rmdir)
+
+    def test_dangling_workspace_ancestor_rejected_before_demo_creates_target(self):
+        self.real.rmdir()
+        self.assertFalse(self.alias.exists())
+        self.assertFalse(self.alias.is_symlink())
+        for workspace in (self.alias, self.alias / 'new-demo'):
+            with self.assertRaisesRegex(GateError, 'Symlink/reparse'):
+                canonical_workspace(workspace, exists=False)
+        with self.assertRaisesRegex(GateError, 'Symlink/reparse'):
+            create_demo(self.alias / 'new-demo')
+        self.assertFalse(self.real.exists())
+
+    def test_dangling_child_junction_is_rejected_without_creating_target(self):
+        self.real.rmdir()
+        for relative in ('library', 'library/new'):
+            with self.assertRaisesRegex(GateError, 'Symlink/reparse'):
+                safe(self.root, relative)
+        self.assertFalse(self.real.exists())
+
+    def test_payload_dangling_ancestors_root_files_and_folders_are_rejected(self):
+        self.real.rmdir()
+        with self.assertRaisesRegex(ValueError, 'Symlink/reparse ancestor'):
+            check_ancestors(self.alias / 'new')
+        with self.assertRaisesRegex(ValueError, 'Payload directory link'):
+            payload_paths(self.root)
+        root_file = self.root / 'README.md'
+        self.make_junction(root_file)
+        with self.assertRaisesRegex(ValueError, 'Payload file link'):
+            payload_paths(self.root)
+        self.assertFalse(self.real.exists())
 
 
 if __name__ == '__main__':

@@ -3,6 +3,7 @@ from __future__ import annotations
 import hashlib
 import json
 import os
+import stat
 from pathlib import Path, PurePosixPath, PureWindowsPath
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -15,17 +16,28 @@ EXCLUDED_SUFFIXES = {'.pyc', '.pyo', '.pem', '.key', '.p12', '.pfx'}
 def sha(data: bytes) -> str:
     return hashlib.sha256(data).hexdigest()
 
+def _metadata(path: Path):
+    """Inspect an entry itself, including dangling links and Windows junctions."""
+    try:
+        return path.lstat()
+    except (FileNotFoundError, NotADirectoryError):
+        return None
+
+def _linked_metadata(metadata) -> bool:
+    return stat.S_ISLNK(metadata.st_mode) or bool(getattr(metadata, 'st_file_attributes', 0) & 0x400)
+
 def linked(path: Path) -> bool:
-    return path.is_symlink() or bool(getattr(path.lstat(), 'st_file_attributes', 0) & 0x400)
+    return _linked_metadata(path.lstat())
 
 def check_ancestors(path: Path) -> None:
     """Check lexical ancestors before resolving: resolution would hide a symlink."""
     current = Path(os.path.abspath(path))
     for candidate in (current, *current.parents):
-        if candidate.exists() or candidate.is_symlink():
-            if linked(candidate):
+        metadata = _metadata(candidate)
+        if metadata is not None:
+            if _linked_metadata(metadata):
                 raise ValueError('Symlink/reparse ancestor rejected: ' + str(candidate))
-            if candidate != current and not candidate.is_dir():
+            if candidate != current and not stat.S_ISDIR(metadata.st_mode):
                 raise ValueError('Ancestor is not a directory: ' + str(candidate))
 
 def excluded(path: Path) -> bool:
@@ -40,15 +52,17 @@ def payload_paths(root: Path, include_inventory: bool = False) -> list[Path]:
     paths = []
     for name in FILES + ((INVENTORY,) if include_inventory else ()):
         path = root / name
-        if path.exists() or path.is_symlink():
-            if linked(path) or not path.is_file():
+        metadata = _metadata(path)
+        if metadata is not None:
+            if _linked_metadata(metadata) or not stat.S_ISREG(metadata.st_mode):
                 raise ValueError('Payload file link or non-file rejected: ' + name)
             paths.append(path)
     for folder in FOLDERS:
         start = root / folder
-        if not start.exists() and not start.is_symlink():
+        metadata = _metadata(start)
+        if metadata is None:
             continue
-        if linked(start) or not start.is_dir():
+        if _linked_metadata(metadata) or not stat.S_ISDIR(metadata.st_mode):
             raise ValueError('Payload directory link or non-directory rejected: ' + folder)
         for current, directories, files in os.walk(start, followlinks=False):
             current = Path(current)

@@ -7,6 +7,7 @@ import os
 from pathlib import Path, PurePosixPath, PureWindowsPath
 import re
 import shutil
+import stat
 import struct
 import sys
 import tempfile
@@ -50,9 +51,12 @@ def canonical_workspace(value, exists=True):
     """
     raw = Path(value).expanduser().absolute()
     for node in (raw, *raw.parents):
-        if node.exists() or node.is_symlink():
-            require(not node.is_symlink() and not getattr(node.lstat(), 'st_file_attributes', 0) & 0x400,
-                    'Symlink/reparse workspace ancestor rejected')
+        try:
+            metadata = node.lstat()
+        except (FileNotFoundError, NotADirectoryError):
+            continue
+        require(not stat.S_ISLNK(metadata.st_mode) and not getattr(metadata, 'st_file_attributes', 0) & 0x400,
+                'Symlink/reparse workspace ancestor rejected')
     root = raw.resolve(strict=exists)
     require(root != Path(root.anchor) and (not exists or root.is_dir()),
             'Workspace must be an explicit non-root directory' + (' that exists' if exists else ''))
@@ -66,8 +70,12 @@ def safe(root, relative, exists=False):
     require(all(':' not in part and not part.endswith(('.', ' ')) and part.split('.')[0].upper() not in reserved for part in pos.parts), 'Unsafe Windows path')
     raw = root.joinpath(*pos.parts)
     for node in (raw, *raw.parents):
-        if node.exists():
-            require(not node.is_symlink() and not getattr(node.lstat(), 'st_file_attributes', 0) & 0x400, 'Symlink/reparse path rejected')
+        try:
+            metadata = node.lstat()
+        except (FileNotFoundError, NotADirectoryError):
+            metadata = None
+        if metadata is not None:
+            require(not stat.S_ISLNK(metadata.st_mode) and not getattr(metadata, 'st_file_attributes', 0) & 0x400, 'Symlink/reparse path rejected')
         if node == root: break
     target = raw.resolve(strict=exists)
     require(target.is_relative_to(root), 'Path escapes workspace')

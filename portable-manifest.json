@@ -320,8 +320,8 @@
     },
     {
       "path": "scripts/_payload.py",
-      "sha256": "1cfbdeb390e5da5964fb5f31a410b7624f14dbb5b220b71612dfede7ebd603fa",
-      "bytes": 5559
+      "sha256": "8c74de46b3df47833a4250e2fd1452b36d37189ea95a69ac2e05acc015a9b06c",
+      "bytes": 6007
     },
     {
       "path": "scripts/browser_probe.py",
@@ -375,8 +375,8 @@
     },
     {
       "path": "scripts/pipeline.py",
-      "sha256": "7dca9267c66e0cea608a4f1a0892460e609801a96f15a16fc6ba83bc4d32eda7",
-      "bytes": 51136
+      "sha256": "c78e7f24fd5b457cd4b2044a8446fb251f2511bc7559573d141567f45fec2d0d",
+      "bytes": 51377
     },
     {
       "path": "scripts/render_web.py",
@@ -485,8 +485,8 @@
     },
     {
       "path": "tests/test_short_paths.py",
-      "sha256": "a9faffd29f66af0c97cb8f0a41c6f9c620731828a4aee5746ec25f53a280cf11",
-      "bytes": 6543
+      "sha256": "4b5a057f10d84c78d3a8a4b9e243bc86fe57adadf189e513b1cf5c50985609ec",
+      "bytes": 9026
     },
     {
       "path": "tests/test_task_amend.py",
