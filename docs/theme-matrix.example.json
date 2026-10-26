@@ -1,0 +1,19 @@
+{
+  "version": "1.0",
+  "illustrative_only": true,
+  "theme_contract": "Same task, entity, fixture and geometry; deliberate paired semantic colors and materials.",
+  "concepts": [{
+    "id": "operations-review",
+    "product": "operations",
+    "family": "glass",
+    "first": "Inspect selected local task A before deciding",
+    "layout": "Queue, selected task preview and typed history",
+    "themes": ["light", "dark"],
+    "viewports": {"desktop": [1440, 1000], "mobile": [390, 844]}
+  }],
+  "type_contract": {"roles": {
+    "page": [30, 38, 600], "section": [18, 26, 600], "entity": [16, 24, 600],
+    "body": [14, 20, 400], "label": [14, 20, 500], "meta": [12, 18, 450]
+  }},
+  "qa_contract": ["font-loaded", "primary-in-fold", "exact-dialog", "escape-focus", "theme-semantic-identity"]
+}

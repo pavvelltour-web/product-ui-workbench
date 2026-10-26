@@ -1,0 +1,7 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema",
+  "title":"Supplied actual tool receipt envelope; examples/tests are labeled synthetic",
+  "type":"object","required":["provider","tool","retrieved_at","request","result"],
+  "properties":{"provider":{"enum":["mobbin","shadcn"]},"tool":{"type":"string","minLength":1},"retrieved_at":{"type":"string","format":"date-time"},"request":{"type":"object"},"result":{"type":"object"},"selected_id":{"type":"string"},"selected_screen_id":{"type":"string"},"notice_presented_verbatim":{"type":"boolean"},"presented_notice_text":{"type":"string"},"asset_path":{"type":"string"},"asset_sha256":{"type":"string","pattern":"^[a-f0-9]{64}$"},"local_library_gate":{"enum":["not-run","pass","fail"]}},
+  "$comment":"Runtime adapter checks provider-specific identity, actual image observer/hash, unchanged provider notice, source/API/license evidence and conditional library pass evidence. Authenticity remains an external attestation."
+}

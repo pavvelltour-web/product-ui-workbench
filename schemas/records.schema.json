@@ -1,0 +1,44 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "urn:product-ui-workbench:records:0.2.0",
+  "title": "Workbench input record contracts; CLI additionally enforces hashes, containment, freshness and budgets",
+  "$defs": {
+    "text": {"type":"string","minLength":1},
+    "id": {"type":"string","pattern":"^[a-z][a-z0-9-]{0,63}$"},
+    "sha256": {"type":"string","pattern":"^[a-f0-9]{64}$"},
+    "basis": {"enum":["observed","inferred","proposed"]},
+    "aspect": {"enum":["composition","typography","spacing","material","color","responsive"]},
+    "task": {
+      "type":"object", "required":["job","scope","factual_data","interactions","constraints"],
+      "properties":{"job":{"$ref":"#/$defs/text"},"scope":{"$ref":"#/$defs/text"},"factual_data":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/text"}},"interactions":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/text"}},"constraints":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/text"}}}
+    },
+    "analysis": {
+      "type":"object", "required":["id","canonical_url","asset_path","asset_sha256","observed","rights","traits"],
+      "properties":{
+        "id":{"$ref":"#/$defs/id"},"canonical_url":{"type":"string","format":"uri","pattern":"^https://"},"asset_path":{"$ref":"#/$defs/text"},"asset_sha256":{"$ref":"#/$defs/sha256"},
+        "observed":{"type":"object","required":["observer","at","method"],"properties":{"observer":{"$ref":"#/$defs/text"},"at":{"type":"string","format":"date-time"},"method":{"const":"actual-image-view"}}},
+        "rights":{"type":"object","required":["purpose","status","evidence"],"properties":{"purpose":{"const":"visual-analysis"},"status":{"const":"permitted"},"evidence":{"$ref":"#/$defs/text"}}},
+        "traits":{"type":"array","minItems":1,"items":{"type":"object","required":["id","aspect","basis","description"],"properties":{"id":{"$ref":"#/$defs/id"},"aspect":{"$ref":"#/$defs/aspect"},"basis":{"$ref":"#/$defs/basis"},"description":{"$ref":"#/$defs/text"}}}}
+      }
+    },
+    "prompt-spec": {
+      "type":"object","required":["intent","directives","delta_findings"],
+      "properties":{"intent":{"$ref":"#/$defs/text"},"delta_findings":{"type":"array","items":{"$ref":"#/$defs/id"}},"directives":{"type":"array","minItems":6,"items":{"type":"object","required":["trait_id","basis","decision"],"properties":{"trait_id":{"$ref":"#/$defs/id"},"basis":{"$ref":"#/$defs/basis"},"decision":{"$ref":"#/$defs/text"}}}}}
+    },
+    "finding":{"type":"object","required":["id","category","severity","evidence","action"],"properties":{"id":{"$ref":"#/$defs/id"},"category":{"enum":["technical","visual","reference"]},"severity":{"enum":["minor","major","blocking"]},"evidence":{"$ref":"#/$defs/text"},"action":{"$ref":"#/$defs/text"}}},
+    "technical":{"type":"object","required":["status","evidence"],"properties":{"status":{"enum":["pass","fail","not-run"]},"evidence":{"$ref":"#/$defs/text"}}},
+    "visual":{"type":"object","required":["status","evidence"],"properties":{"status":{"enum":["candidate","revise","not-run"]},"evidence":{"$ref":"#/$defs/text"}}},
+    "human":{"type":"object","required":["status","evidence"],"properties":{"status":{"enum":["accepted","rejected","not-run"]},"evidence":{"$ref":"#/$defs/text"}}},
+    "review": {
+      "type":"object","required":["observer","inspected_at","source_sha256","png_sha256s","pixel_observations","technical","visual","human","independent","findings","best_so_far","replace_reference"],
+      "properties":{
+        "observer":{"$ref":"#/$defs/text"},"inspected_at":{"type":"string","format":"date-time"},"source_sha256":{"$ref":"#/$defs/sha256"},"png_sha256s":{"type":"array","minItems":1,"items":{"$ref":"#/$defs/sha256"}},
+        "pixel_observations":{"type":"array","minItems":1,"items":{"type":"object","required":["png_sha256","observation"],"properties":{"png_sha256":{"$ref":"#/$defs/sha256"},"observation":{"$ref":"#/$defs/text"}}}},
+        "technical":{"$ref":"#/$defs/technical"},"visual":{"$ref":"#/$defs/visual"},"human":{"$ref":"#/$defs/human"},
+        "independent":{"type":"object","required":["technical","visual","evidence"],"properties":{"technical":{"enum":["pass","fail","not-run"]},"visual":{"enum":["pass","fail","not-run"]},"reviewer":{"$ref":"#/$defs/text"},"evidence":{"$ref":"#/$defs/text"}}},
+        "findings":{"type":"array","items":{"$ref":"#/$defs/finding"}},"best_so_far":{"type":"boolean"},"replace_reference":{"type":"boolean"}
+      }
+    }
+  },
+  "oneOf":[{"$ref":"#/$defs/task"},{"$ref":"#/$defs/analysis"},{"$ref":"#/$defs/prompt-spec"},{"$ref":"#/$defs/review"}]
+}

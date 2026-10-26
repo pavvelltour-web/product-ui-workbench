@@ -1,0 +1,27 @@
+{
+  "version": "1.0",
+  "study_id": "focus",
+  "plan_sha256": "REPLACE_WITH_ACTUAL_PINNED_PLAN_SHA256",
+  "observer": "REPLACE_WITH_NAMED_ACTUAL_VIEWER",
+  "human_acceptance": "pending",
+  "artifacts": {
+    "calibration": {"path": "images/focus-calibration-1/capture.json", "sha256": "REPLACE_WITH_ACTUAL_SHA256"},
+    "study": {"path": "images/focus-study-1/capture.json", "sha256": "REPLACE_WITH_ACTUAL_SHA256"},
+    "components": {"path": "images/focus-components-1/capture.json", "sha256": "REPLACE_WITH_ACTUAL_SHA256"}
+  },
+  "source_manifests": [{"path": "runs/build-1-manifest.json", "sha256": "REPLACE_WITH_ACTUAL_SHA256"}],
+  "captures": [
+    {"path": "images/focus-study-1/desktop.png", "sha256": "REPLACE_WITH_ACTUAL_SHA256", "viewed": true},
+    {"path": "images/focus-study-1/mobile.png", "sha256": "REPLACE_WITH_ACTUAL_SHA256", "viewed": true}
+  ],
+  "criteria": {
+    "attention-priority": {"status": "not-run", "method": "image-observation", "evidence": "Template only. Replace with actual first-attention judgment against the declared intent.", "capture_sha256s": ["REPLACE_WITH_VIEWED_STUDY_SHA256"]},
+    "semantic-grouping": {"status": "not-run", "method": "image-observation", "evidence": "Template only. Inspect actual label/value and section relationships.", "capture_sha256s": ["REPLACE_WITH_VIEWED_STUDY_SHA256"]},
+    "type-roles": {"status": "not-run", "method": "mixed", "evidence": "Template only. Compare rendered hierarchy and computed type roles.", "capture_sha256s": ["REPLACE_WITH_VIEWED_STUDY_SHA256"], "measurements": [{"name": "Section computed font size", "selector": "[data-ux-role=section]", "viewport": "desktop1440x1000", "unit": "px", "value": "REPLACE_WITH_ACTUAL_VALUE"}]},
+    "chart-semantics": {"status": "not-run", "method": "image-observation", "evidence": "Template only. If a chart exists inspect measure/unit/period/axes/end gutter. Otherwise state observed absence and reason.", "capture_sha256s": ["REPLACE_WITH_VIEWED_STUDY_SHA256"]},
+    "control-coherence": {"status": "not-run", "method": "image-observation", "evidence": "Template only. Compare actual search/filter states and geometry.", "capture_sha256s": ["REPLACE_WITH_VIEWED_STUDY_SHA256"]},
+    "scope-and-selection": {"status": "not-run", "method": "image-observation", "evidence": "Template only. Pin visible result scope and selection, with real interaction evidence separately.", "capture_sha256s": ["REPLACE_WITH_VIEWED_STUDY_SHA256"]},
+    "detail-hierarchy": {"status": "not-run", "method": "image-observation", "evidence": "Template only. Inspect entity vs section rank in actual detail/open state.", "capture_sha256s": ["REPLACE_WITH_VIEWED_STUDY_SHA256"]},
+    "touch-first-useful": {"status": "not-run", "method": "image-observation", "evidence": "Template only. State the first useful visible touch object, text and targets.", "capture_sha256s": ["REPLACE_WITH_VIEWED_STUDY_SHA256"]}
+  }
+}

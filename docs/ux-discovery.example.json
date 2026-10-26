@@ -1,0 +1,141 @@
+{
+  "version": "1.0",
+  "study_id": "discovery-example",
+  "applicability": {
+    "mode": "explicit-simulation",
+    "reason": "Illustrate a selectable UX discovery before a new operations prototype"
+  },
+  "scope": {
+    "kind": "design-only",
+    "backend": false,
+    "product_ids": [
+      "ai"
+    ]
+  },
+  "provenance": {
+    "observer": "Example author; not a real participant",
+    "method": "manual-normalization",
+    "evidence_status": "proposed-not-validated",
+    "chronology": {
+      "kind": "manual-attestation",
+      "statement": "Portable example only; no claim that an actual discovery/research chronology occurred.",
+      "automatic_enforcement": false
+    },
+    "files": [
+      {
+        "id": "notes",
+        "path": "references/scenario-discovery.md",
+        "sha256": "f75ba39e6ce68c4a52d59873b0cb171e94449d5d94f40adb102bcada8338964c",
+        "kind": "simulated-notes"
+      }
+    ]
+  },
+  "interviews": [
+    {
+      "id": "operator",
+      "product_id": "ai",
+      "source_file_id": "notes",
+      "persona": "Operator, invented",
+      "origin": "simulated",
+      "evidence_level": "hypothesis",
+      "conflicting_need": "Fast recovery versus checking consequences",
+      "questions": [
+        {
+          "question": "What brings you to the console?",
+          "followup": "What is missing when a run stops?",
+          "answer": "I need the exact task and failed step before deciding.",
+          "answer_kind": "simulated",
+          "hypothesis": "Show run identity and reason first."
+        }
+      ]
+    }
+  ],
+  "products": [
+    {
+      "id": "ai",
+      "name": "AI operations example",
+      "source_file_ids": [
+        "notes"
+      ],
+      "alternatives": [
+        {
+          "id": "chat",
+          "approach": "Chat first",
+          "benefit": "Free-form clarification",
+          "tradeoff": "Run identity may be buried in a long conversation"
+        },
+        {
+          "id": "review",
+          "approach": "Run review and trace",
+          "benefit": "Bind decisions to the exact run and step",
+          "tradeoff": "Requires a focused inspector and enough context"
+        }
+      ],
+      "chosen": {
+        "id": "review",
+        "reason": "The proposed task is investigating a stopped run, not starting a conversation"
+      },
+      "scenario": {
+        "job": "Understand a stopped run before choosing a local demo action",
+        "first_useful_entity": "Exact stopped run",
+        "actions": [
+          {
+            "id": "inspect",
+            "label": "Open exact object",
+            "entity": "Exact stopped run",
+            "effect": "Reveal a stable ID and its current context"
+          }
+        ],
+        "scopes": [
+          {
+            "id": "queue",
+            "label": "Current queue",
+            "collection": "Synthetic records in the chosen scope",
+            "controls": [
+              "Status filter",
+              "Search"
+            ],
+            "result_count": "Count the same filtered collection as the rendered rows",
+            "selection": "Preserve the selected stable ID; show explicit outside-filter context"
+          }
+        ],
+        "states": {
+          "loading": "Pending state disables duplicate action and preserves context",
+          "empty": "Explain current scope and provide Reset filters",
+          "error": "Keep selection/draft; show local error and Retry",
+          "cancel": "Discard pending edit without mutating the original record",
+          "success": "Show the exact locally changed record and feedback"
+        },
+        "mobile": {
+          "first_useful_object": "Exact stopped run",
+          "order": [
+            "Workspace context",
+            "Exact stopped run",
+            "Inspect action",
+            "Queue controls",
+            "Other records"
+          ],
+          "touch_target_px": 44
+        }
+      },
+      "falsification_cases": [
+        {
+          "id": "selection",
+          "probe": "Open run A, change filter, then open run B",
+          "expected": "Details retain the chosen stable ID and never silently reuse another run",
+          "method": "prototype-observation",
+          "scope_ids": [
+            "queue"
+          ]
+        }
+      ]
+    }
+  ],
+  "assumptions": [
+    {
+      "id": "domain",
+      "statement": "The future user operates AI-agent runs; this example has no actual confirmation",
+      "status": "unresolved"
+    }
+  ]
+}

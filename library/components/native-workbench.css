@@ -1,0 +1,37 @@
+/* Original MIT source. Semantic and component roles; values are proposed defaults, not extracted reference tokens. */
+:root {
+  --wb-ink-900: #17212e; --wb-ink-600: #4b5b70; --wb-neutral-100: #f4f6f9;
+  --wb-blue-700: #1748bd; --wb-white: #ffffff; --wb-line-300: #aeb9c7;
+  --wb-text: var(--wb-ink-900); --wb-muted: var(--wb-ink-600); --wb-surface: var(--wb-white);
+  --wb-subtle: var(--wb-neutral-100); --wb-action: var(--wb-blue-700); --wb-border: var(--wb-line-300);
+  --wb-control-height: 2.75rem; --wb-row-padding: .65rem .8rem; --wb-focus: 2px solid var(--wb-action);
+}
+.wb-table, .wb-list-detail, .wb-recovery-form { font: 1rem/1.5 system-ui, sans-serif; color: var(--wb-text); }
+.wb-table-region { max-width: 100%; overflow-x: auto; }
+.wb-table { width: 100%; border-collapse: collapse; background: var(--wb-surface); }
+.wb-table caption { padding: .8rem; text-align: left; font-weight: 650; }
+.wb-table th, .wb-table td { text-align: left; padding: var(--wb-row-padding); border-bottom: 1px solid var(--wb-border); overflow-wrap: anywhere; }
+.wb-table th { background: var(--wb-subtle); }
+.wb-table .wb-number { text-align: right; font-variant-numeric: tabular-nums; }
+.wb-sort { border: 0; background: none; color: inherit; font: inherit; font-weight: 650; padding: .3rem; min-height: var(--wb-control-height); cursor: pointer; white-space: nowrap; }
+.wb-table-region:focus-visible, .wb-sort:focus-visible, .wb-button:focus-visible, .wb-list-button:focus-visible, .wb-input:focus-visible, .wb-checkbox:focus-visible { outline: var(--wb-focus); outline-offset: 3px; }
+.wb-list-detail { display: grid; grid-template-columns: minmax(12rem, 1fr) minmax(16rem, 2fr); gap: 1rem; }
+.wb-list { margin: 0; padding: 0; list-style: none; }
+.wb-list-button { width: 100%; min-height: var(--wb-control-height); border: 0; border-bottom: 1px solid var(--wb-border); background: var(--wb-surface); color: inherit; font: inherit; padding: var(--wb-row-padding); text-align: left; cursor: pointer; overflow-wrap: anywhere; }
+.wb-list-button[aria-current] { background: var(--wb-subtle); box-shadow: inset 3px 0 var(--wb-action); }
+.wb-detail { border: 1px solid var(--wb-border); border-radius: .5rem; padding: 1rem; min-width: 0; overflow-wrap: anywhere; }
+.wb-detail[hidden] { display: none; }
+.wb-button { min-height: var(--wb-control-height); border: 1px solid var(--wb-border); border-radius: .4rem; padding: .5rem 1rem; background: var(--wb-surface); color: var(--wb-text); font: inherit; cursor: pointer; }
+.wb-primary { background: var(--wb-action); border-color: var(--wb-action); color: var(--wb-white); }
+.wb-button:disabled { opacity: .65; cursor: wait; }
+.wb-button[hidden] { display: none; }
+.wb-fields { display: grid; gap: 1rem; }
+.wb-field label { display: block; font-weight: 600; margin-bottom: .35rem; }
+.wb-input { display: block; box-sizing: border-box; min-height: var(--wb-control-height); width: 100%; max-width: 100%; border: 1px solid var(--wb-border); border-radius: .4rem; padding: .55rem .7rem; font: inherit; color: inherit; background: var(--wb-surface); }
+.wb-hint { color: var(--wb-muted); font-size: .875rem; margin: .3rem 0; }
+.wb-checkbox { width: 1.5rem; height: 1.5rem; accent-color: var(--wb-action); cursor: pointer; }
+.wb-status { min-height: 1.5rem; overflow-wrap: anywhere; }
+.wb-actions { display: flex; gap: .6rem; flex-wrap: wrap; }
+.wb-visually-hidden { position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip-path: inset(50%); white-space: nowrap; border: 0; }
+@media (max-width: 42rem) { .wb-list-detail { grid-template-columns: 1fr; } .wb-list-detail:has(.wb-detail:not([hidden])) nav { display: none; } }
+@media (prefers-reduced-motion: reduce) { .wb-table, .wb-list-detail, .wb-recovery-form { scroll-behavior: auto; } }

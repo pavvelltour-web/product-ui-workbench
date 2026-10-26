@@ -1,0 +1,116 @@
+{
+  "version": "1.0",
+  "study_id": "offline-demo",
+  "screen_kind": "operations",
+  "intent": {
+    "statement": "Proposed: find a synthetic task, inspect its exact identity and save an in-memory note.",
+    "basis": "proposed"
+  },
+  "attention": {
+    "primary": {
+      "content": "Task A and its direct review opener",
+      "reason": "A direct object/action gives the original offline fixture a useful first step.",
+      "action": "Open Task A"
+    },
+    "secondary": [
+      "Status-filtered task queue",
+      "Explicit current selection and in-memory save feedback"
+    ]
+  },
+  "grouping": [
+    {
+      "id": "queue",
+      "contents": [
+        "Status filter",
+        "Visible task count",
+        "Task identity and status rows"
+      ],
+      "inner_gap": 8,
+      "outer_gap": 24
+    }
+  ],
+  "typography": {
+    "page": {
+      "family": "system-ui",
+      "size_px": 36,
+      "line_height_px": 42,
+      "weight": 700
+    },
+    "section": {
+      "family": "system-ui",
+      "size_px": 20,
+      "line_height_px": 30,
+      "weight": 700
+    },
+    "entity": {
+      "family": "system-ui",
+      "size_px": 16,
+      "line_height_px": 24,
+      "weight": 400
+    },
+    "body": {
+      "family": "system-ui",
+      "size_px": 16,
+      "line_height_px": 24,
+      "weight": 400
+    },
+    "label": {
+      "family": "system-ui",
+      "size_px": 16,
+      "line_height_px": 24,
+      "weight": 600
+    },
+    "meta": {
+      "family": "system-ui",
+      "size_px": 13,
+      "line_height_px": 20,
+      "weight": 400
+    }
+  },
+  "controls": {
+    "family": "Native buttons, select and input; minimum44px control height.",
+    "search": "No search field is included in this small fixture.",
+    "filter_scope": "Status filters the three synthetic queue tasks.",
+    "result_count": "Visible count uses the filtered array; total task count is explicitly global.",
+    "selection": "Dialog shows a stable task ID. Save is in memory; test error keeps the draft; Cancel/Escape close and return focus."
+  },
+  "chart": {
+    "present": false,
+    "reason": "The operational screen prioritizes the action queue; no chart is needed."
+  },
+  "mobile": {
+    "first_useful_object": "Task A direct review opener",
+    "expected_order": [
+      "Page context",
+      "Direct Task A action",
+      "Task queue and status filter",
+      "Current selection and feedback"
+    ],
+    "text_min_px": 12,
+    "touch_target_px": 44
+  },
+  "interaction_checks": [
+    {
+      "id": "selected-status",
+      "kind": "selected-value-visible",
+      "target": "[data-testid=status-filter]",
+      "viewports": [
+        "desktop",
+        "mobile"
+      ]
+    },
+    {
+      "id": "primary-task",
+      "kind": "open-region",
+      "trigger": "[data-testid=primary-open]",
+      "target": "dialog",
+      "identity": "Task A",
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "close": "Escape",
+      "focus_return": true
+    }
+  ]
+}

@@ -1,0 +1,12 @@
+{
+  "version": "1.0",
+  "kind": "retained-source-snapshot",
+  "registry": "@shadcn",
+  "base": "radix",
+  "style": "new-york",
+  "upstream": "https://github.com/shadcn-ui/ui",
+  "upstream_commit": "unknown; exact distributed source hashes are recorded by library/manifest.json",
+  "license": "MIT; see adjacent LICENSE.md",
+  "fresh_tool_call": false,
+  "private_reference_assets": false
+}

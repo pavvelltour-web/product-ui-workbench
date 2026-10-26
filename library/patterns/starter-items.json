@@ -1,0 +1,258 @@
+[
+  {
+    "id": "example.local-ledger",
+    "type": "example",
+    "title": "Integer-kopeck local ledger with transfer and recovery",
+    "job": [
+      "track-finances",
+      "edit-transaction"
+    ],
+    "platform": [
+      "web",
+      "touch"
+    ],
+    "entities": [
+      "account",
+      "transaction",
+      "category",
+      "budget"
+    ],
+    "actions": [
+      "add",
+      "edit",
+      "validate",
+      "save",
+      "retry",
+      "transfer"
+    ],
+    "states": [
+      "editing",
+      "invalid",
+      "saving",
+      "save-error",
+      "saved",
+      "reloaded"
+    ],
+    "density": [
+      "standard"
+    ],
+    "accessibility": [
+      "host-labels-required",
+      "host-keyboard-required"
+    ],
+    "stack": [
+      "react-shadcn"
+    ],
+    "source_files": [
+      {
+        "path": "library/examples/local-ledger/data.js",
+        "sha256": "e839e24dc234d03aab7deb5c2a7f8b07e7d6a44bb2580d4f71c818da7c5ae76a",
+        "bytes": 2778
+      },
+      {
+        "path": "library/examples/local-ledger/usePocket.js",
+        "sha256": "e6632b26d613d45d1ec568d5f9c256cf06c5b386d82338983f20be24d92e008c",
+        "bytes": 2247
+      },
+      {
+        "path": "library/examples/local-ledger/API.md",
+        "sha256": "fdd5e1dac75b0d2e2c06b94245eba6b22f158df42a43553a43434ec966f51bb6",
+        "bytes": 1501
+      }
+    ],
+    "api": "library/examples/local-ledger/API.md",
+    "license": {
+      "spdx": "MIT",
+      "notice": "licenses/ORIGINAL-MIT.txt",
+      "sha256": "43a5dd3ccba319d8c9218e8131307d59cc3e43e8b2480929fb899f5353068a7b"
+    },
+    "verification": {
+      "source_integrity": "recorded",
+      "build": "not-run in reusable package",
+      "browser": "not-run in reusable package",
+      "visual": "not-run",
+      "human": "not-run"
+    },
+    "limitations": [
+      "Synthetic October2026 fixture; replace dates/accounts/keys",
+      "Browser-local persistence only; no bank or multi-user guarantee"
+    ],
+    "source_basis": "Original proposed reusable composition; no private visual research or user preference is distributed."
+  },
+  {
+    "id": "pattern.own-account-transfer",
+    "title": "Own-account transfer with exact minor units and recovery",
+    "job": [
+      "track-finances",
+      "edit-transaction"
+    ],
+    "entities": [
+      "source-account",
+      "destination-account",
+      "integer-amount",
+      "committed-transaction",
+      "draft"
+    ],
+    "actions": [
+      "choose-type",
+      "choose-accounts",
+      "validate",
+      "save",
+      "retry",
+      "reload"
+    ],
+    "states": [
+      "editing",
+      "invalid",
+      "saving",
+      "save-error",
+      "saved"
+    ],
+    "stack": [
+      "native-js",
+      "react-shadcn"
+    ],
+    "composition": [
+      "component.native-workbench",
+      "component.shadcn-input",
+      "component.shadcn-textarea",
+      "component.shadcn-button"
+    ],
+    "hierarchy": [
+      "transaction type and exact amount",
+      "two different owned accounts",
+      "save/error feedback"
+    ],
+    "sequence": [
+      "choose transfer",
+      "enter positive integer minor units",
+      "choose different accounts",
+      "save",
+      "preserve draft on failure",
+      "retry once"
+    ],
+    "transitions": [
+      "transfer: combined balance unchanged",
+      "save-error: original transaction unchanged, draft retained",
+      "success: debit and credit exactly once"
+    ],
+    "responsive": "One labeled editor; phone targets enlarged separately",
+    "failure": "Reject same-account destination and fractional minor units; never treat transfer as expense",
+    "tradeoff": "Local example; backend concurrency, auth and idempotency need a separate contract",
+    "unsuitable": "External payment execution without provider contracts",
+    "example": "example.local-ledger",
+    "type": "pattern",
+    "platform": [
+      "web",
+      "touch"
+    ],
+    "density": [
+      "standard"
+    ],
+    "accessibility": [
+      "keyboard",
+      "labels",
+      "focus-policy",
+      "error-feedback"
+    ],
+    "license": {
+      "spdx": "MIT",
+      "notice": "licenses/ORIGINAL-MIT.txt",
+      "sha256": "43a5dd3ccba319d8c9218e8131307d59cc3e43e8b2480929fb899f5353068a7b"
+    },
+    "verification": {
+      "source_integrity": "recorded",
+      "build": "not-run in reusable package",
+      "browser": "not-run in reusable package",
+      "visual": "not-run",
+      "human": "not-run"
+    },
+    "source_basis": "Original proposed reusable composition; no private visual research or user preference is distributed."
+  },
+  {
+    "id": "pattern.selected-object-workspace",
+    "title": "Selected work object with contextual navigator and next action",
+    "job": [
+      "edit-next-action"
+    ],
+    "entities": [
+      "selected-record",
+      "stage",
+      "properties",
+      "next-action"
+    ],
+    "actions": [
+      "filter",
+      "select",
+      "open-editor",
+      "save",
+      "retry"
+    ],
+    "states": [
+      "editing",
+      "invalid",
+      "saving",
+      "save-error",
+      "saved"
+    ],
+    "stack": [
+      "native-js",
+      "react-shadcn"
+    ],
+    "composition": [
+      "component.native-workbench",
+      "component.shadcn-input",
+      "component.shadcn-textarea",
+      "component.shadcn-button"
+    ],
+    "hierarchy": [
+      "stage navigator",
+      "selected identity and next action",
+      "compact record switcher",
+      "context properties"
+    ],
+    "sequence": [
+      "find record",
+      "select exact identity",
+      "inspect next action",
+      "edit with recovery"
+    ],
+    "transitions": [
+      "selection: stable identity across panes",
+      "filter: usable empty state",
+      "save: all contexts derive from committed model"
+    ],
+    "responsive": "Readable selected workspace and list; never shrink labels to 7px",
+    "failure": "Keep selected identity explicit when filter excludes it",
+    "tradeoff": "Focused action rather than aggregate overview; board suits comparison better",
+    "unsuitable": "Pure analytics or bulk actions without selection model",
+    "example": "example.queue-detail",
+    "type": "pattern",
+    "platform": [
+      "web",
+      "touch"
+    ],
+    "density": [
+      "standard"
+    ],
+    "accessibility": [
+      "keyboard",
+      "labels",
+      "focus-policy",
+      "error-feedback"
+    ],
+    "license": {
+      "spdx": "MIT",
+      "notice": "licenses/ORIGINAL-MIT.txt",
+      "sha256": "43a5dd3ccba319d8c9218e8131307d59cc3e43e8b2480929fb899f5353068a7b"
+    },
+    "verification": {
+      "source_integrity": "recorded",
+      "build": "not-run in reusable package",
+      "browser": "not-run in reusable package",
+      "visual": "not-run",
+      "human": "not-run"
+    },
+    "source_basis": "Original proposed reusable composition; no private visual research or user preference is distributed."
+  }
+]

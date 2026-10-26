@@ -1,0 +1,1489 @@
+{
+  "version": "0.11.0",
+  "items": [
+    {
+      "id": "component.native-workbench",
+      "type": "component",
+      "title": "Native selection, sortable table, list/detail and recovery form",
+      "job": [
+        "review-records",
+        "select-records",
+        "edit-next-action"
+      ],
+      "platform": [
+        "web",
+        "touch"
+      ],
+      "entities": [
+        "record",
+        "selection",
+        "draft"
+      ],
+      "actions": [
+        "sort",
+        "select",
+        "open-detail",
+        "save",
+        "retry",
+        "cancel"
+      ],
+      "states": [
+        "empty",
+        "selected",
+        "editing",
+        "saving",
+        "save-error",
+        "saved"
+      ],
+      "density": [
+        "compact",
+        "standard"
+      ],
+      "accessibility": [
+        "native-semantics",
+        "labels",
+        "keyboard",
+        "focus-return"
+      ],
+      "stack": [
+        "native-js"
+      ],
+      "implementation_revision": "0.1.1",
+      "source_files": [
+        {
+          "path": "library/components/native-workbench.mjs",
+          "sha256": "7679defb2b6ef0134040d104ae54616edffe348ae5dff7e5088e5d15b9db86b5",
+          "bytes": 12762
+        },
+        {
+          "path": "library/components/native-workbench.css",
+          "sha256": "0e0cc311f81e1ac7add6e1768971890cd7c2d01b0351f4acad2f68946d6fcd39",
+          "bytes": 3806
+        },
+        {
+          "path": "library/components/API.md",
+          "sha256": "d461a7c62e7ab43efecaeb39a6657fcad2748d9f9450760731ed4c42c0df8ea9",
+          "bytes": 4304
+        }
+      ],
+      "license": {
+        "spdx": "MIT",
+        "notice": "licenses/ORIGINAL-MIT.txt",
+        "sha256": "43a5dd3ccba319d8c9218e8131307d59cc3e43e8b2480929fb899f5353068a7b"
+      },
+      "verification": {
+        "source_integrity": "recorded",
+        "build": "not-run in reusable package",
+        "browser": "not-run in reusable package",
+        "visual": "not-run",
+        "human": "not-run"
+      },
+      "api": "library/components/API.md",
+      "limitations": [
+        "Not a React/shadcn implementation",
+        "Native list/detail does not implement URL history; app owns persistence/backend authorization"
+      ]
+    },
+    {
+      "id": "component.shadcn-button",
+      "type": "component",
+      "title": "Actual shadcn/Radix button",
+      "job": [
+        "select-records",
+        "edit-next-action"
+      ],
+      "platform": [
+        "web",
+        "touch"
+      ],
+      "entities": [
+        "record",
+        "field",
+        "view"
+      ],
+      "actions": [
+        "select-records",
+        "edit-next-action"
+      ],
+      "states": [
+        "idle",
+        "disabled",
+        "invalid"
+      ],
+      "density": [
+        "standard"
+      ],
+      "accessibility": [
+        "radix-or-native-semantics",
+        "app-labels-required",
+        "keyboard-check-required"
+      ],
+      "stack": [
+        "react-shadcn"
+      ],
+      "source_files": [
+        {
+          "path": "library/components/react-shadcn/ui/button.tsx",
+          "sha256": "79dd6f75f8136394442202d6b8b922fb269eaad0a5dba579397c9d5b41f893bb",
+          "bytes": 2382
+        }
+      ],
+      "registry": {
+        "name": "@shadcn",
+        "cli_version": "4.21.4",
+        "base": "radix",
+        "style": "new-york",
+        "commit": "unknown; exact retained file hashes pinned"
+      },
+      "dependencies": "library/components/react-shadcn/dependencies.json",
+      "provenance": "library/components/react-shadcn/provenance.json",
+      "api": "library/components/react-shadcn/API.md",
+      "license": {
+        "spdx": "MIT",
+        "notice": "library/components/react-shadcn/LICENSE.md",
+        "sha256": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f"
+      },
+      "adaptation": "unchanged source copy; host CSS/composition separate",
+      "verification": {
+        "source_integrity": "recorded",
+        "build": "not-run in reusable package",
+        "browser": "not-run in reusable package",
+        "visual": "not-run",
+        "human": "not-run"
+      },
+      "limitations": [
+        "Host alias/theme/dependencies required",
+        "Copied source is not a fresh browser/library-correctness pass"
+      ]
+    },
+    {
+      "id": "component.shadcn-dialog",
+      "type": "component",
+      "title": "Actual shadcn/Radix dialog",
+      "job": [
+        "review-records",
+        "edit-next-action"
+      ],
+      "platform": [
+        "web",
+        "touch"
+      ],
+      "entities": [
+        "record",
+        "field",
+        "view"
+      ],
+      "actions": [
+        "review-records",
+        "edit-next-action"
+      ],
+      "states": [
+        "closed",
+        "open",
+        "editing"
+      ],
+      "density": [
+        "standard"
+      ],
+      "accessibility": [
+        "radix-or-native-semantics",
+        "app-labels-required",
+        "keyboard-check-required"
+      ],
+      "stack": [
+        "react-shadcn"
+      ],
+      "source_files": [
+        {
+          "path": "library/components/react-shadcn/ui/dialog.tsx",
+          "sha256": "dcd488cc5d713da215ce2037efd644f35904df755c70f31534706643db488514",
+          "bytes": 4280
+        }
+      ],
+      "registry": {
+        "name": "@shadcn",
+        "cli_version": "4.21.4",
+        "base": "radix",
+        "style": "new-york",
+        "commit": "unknown; exact retained file hashes pinned"
+      },
+      "dependencies": "library/components/react-shadcn/dependencies.json",
+      "provenance": "library/components/react-shadcn/provenance.json",
+      "api": "library/components/react-shadcn/API.md",
+      "license": {
+        "spdx": "MIT",
+        "notice": "library/components/react-shadcn/LICENSE.md",
+        "sha256": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f"
+      },
+      "adaptation": "unchanged source copy; host CSS/composition separate",
+      "verification": {
+        "source_integrity": "recorded",
+        "build": "not-run in reusable package",
+        "browser": "not-run in reusable package",
+        "visual": "not-run",
+        "human": "not-run"
+      },
+      "limitations": [
+        "Host alias/theme/dependencies required",
+        "Copied source is not a fresh browser/library-correctness pass"
+      ]
+    },
+    {
+      "id": "component.shadcn-input",
+      "type": "component",
+      "title": "Actual shadcn/Radix input",
+      "job": [
+        "find-records",
+        "edit-next-action"
+      ],
+      "platform": [
+        "web",
+        "touch"
+      ],
+      "entities": [
+        "record",
+        "field",
+        "view"
+      ],
+      "actions": [
+        "find-records",
+        "edit-next-action"
+      ],
+      "states": [
+        "empty",
+        "editing",
+        "invalid",
+        "disabled"
+      ],
+      "density": [
+        "standard"
+      ],
+      "accessibility": [
+        "radix-or-native-semantics",
+        "app-labels-required",
+        "keyboard-check-required"
+      ],
+      "stack": [
+        "react-shadcn"
+      ],
+      "source_files": [
+        {
+          "path": "library/components/react-shadcn/ui/input.tsx",
+          "sha256": "0c9457181f6ddc80969bcf854e92c362903a55b6e889fbef3fd85343ecc4af5b",
+          "bytes": 952
+        }
+      ],
+      "registry": {
+        "name": "@shadcn",
+        "cli_version": "4.21.4",
+        "base": "radix",
+        "style": "new-york",
+        "commit": "unknown; exact retained file hashes pinned"
+      },
+      "dependencies": "library/components/react-shadcn/dependencies.json",
+      "provenance": "library/components/react-shadcn/provenance.json",
+      "api": "library/components/react-shadcn/API.md",
+      "license": {
+        "spdx": "MIT",
+        "notice": "library/components/react-shadcn/LICENSE.md",
+        "sha256": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f"
+      },
+      "adaptation": "unchanged source copy; host CSS/composition separate",
+      "verification": {
+        "source_integrity": "recorded",
+        "build": "not-run in reusable package",
+        "browser": "not-run in reusable package",
+        "visual": "not-run",
+        "human": "not-run"
+      },
+      "limitations": [
+        "Host alias/theme/dependencies required",
+        "Copied source is not a fresh browser/library-correctness pass"
+      ]
+    },
+    {
+      "id": "component.shadcn-tabs",
+      "type": "component",
+      "title": "Actual shadcn/Radix tabs",
+      "job": [
+        "switch-work-view"
+      ],
+      "platform": [
+        "web",
+        "touch"
+      ],
+      "entities": [
+        "record",
+        "field",
+        "view"
+      ],
+      "actions": [
+        "switch-work-view"
+      ],
+      "states": [
+        "selected",
+        "disabled"
+      ],
+      "density": [
+        "standard"
+      ],
+      "accessibility": [
+        "radix-or-native-semantics",
+        "app-labels-required",
+        "keyboard-check-required"
+      ],
+      "stack": [
+        "react-shadcn"
+      ],
+      "source_files": [
+        {
+          "path": "library/components/react-shadcn/ui/tabs.tsx",
+          "sha256": "e1df6e2f95ece373ca909c1d54b8ba8cf4c47dd425c1784bbb9a01c38dd0936b",
+          "bytes": 3772
+        }
+      ],
+      "registry": {
+        "name": "@shadcn",
+        "cli_version": "4.21.4",
+        "base": "radix",
+        "style": "new-york",
+        "commit": "unknown; exact retained file hashes pinned"
+      },
+      "dependencies": "library/components/react-shadcn/dependencies.json",
+      "provenance": "library/components/react-shadcn/provenance.json",
+      "api": "library/components/react-shadcn/API.md",
+      "license": {
+        "spdx": "MIT",
+        "notice": "library/components/react-shadcn/LICENSE.md",
+        "sha256": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f"
+      },
+      "adaptation": "unchanged source copy; host CSS/composition separate",
+      "verification": {
+        "source_integrity": "recorded",
+        "build": "not-run in reusable package",
+        "browser": "not-run in reusable package",
+        "visual": "not-run",
+        "human": "not-run"
+      },
+      "limitations": [
+        "Host alias/theme/dependencies required",
+        "Copied source is not a fresh browser/library-correctness pass"
+      ]
+    },
+    {
+      "id": "component.shadcn-select",
+      "type": "component",
+      "title": "Actual shadcn/Radix select",
+      "job": [
+        "filter-records",
+        "edit-next-action"
+      ],
+      "platform": [
+        "web",
+        "touch"
+      ],
+      "entities": [
+        "record",
+        "field",
+        "view"
+      ],
+      "actions": [
+        "filter-records",
+        "edit-next-action"
+      ],
+      "states": [
+        "closed",
+        "open",
+        "selected",
+        "disabled"
+      ],
+      "density": [
+        "standard"
+      ],
+      "accessibility": [
+        "radix-or-native-semantics",
+        "app-labels-required",
+        "keyboard-check-required"
+      ],
+      "stack": [
+        "react-shadcn"
+      ],
+      "source_files": [
+        {
+          "path": "library/components/react-shadcn/ui/select.tsx",
+          "sha256": "9293fd75923693411cd443049fba313135014c4ad6997cfcde1e37693fc85b04",
+          "bytes": 6329
+        }
+      ],
+      "registry": {
+        "name": "@shadcn",
+        "cli_version": "4.21.4",
+        "base": "radix",
+        "style": "new-york",
+        "commit": "unknown; exact retained file hashes pinned"
+      },
+      "dependencies": "library/components/react-shadcn/dependencies.json",
+      "provenance": "library/components/react-shadcn/provenance.json",
+      "api": "library/components/react-shadcn/API.md",
+      "license": {
+        "spdx": "MIT",
+        "notice": "library/components/react-shadcn/LICENSE.md",
+        "sha256": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f"
+      },
+      "adaptation": "unchanged source copy; host CSS/composition separate",
+      "verification": {
+        "source_integrity": "recorded",
+        "build": "not-run in reusable package",
+        "browser": "not-run in reusable package",
+        "visual": "not-run",
+        "human": "not-run"
+      },
+      "limitations": [
+        "Host alias/theme/dependencies required",
+        "Copied source is not a fresh browser/library-correctness pass"
+      ]
+    },
+    {
+      "id": "component.shadcn-tooltip",
+      "type": "component",
+      "title": "Actual shadcn/Radix tooltip",
+      "job": [
+        "understand-action"
+      ],
+      "platform": [
+        "web",
+        "touch"
+      ],
+      "entities": [
+        "record",
+        "field",
+        "view"
+      ],
+      "actions": [
+        "understand-action"
+      ],
+      "states": [
+        "closed",
+        "open"
+      ],
+      "density": [
+        "standard"
+      ],
+      "accessibility": [
+        "radix-or-native-semantics",
+        "app-labels-required",
+        "keyboard-check-required"
+      ],
+      "stack": [
+        "react-shadcn"
+      ],
+      "source_files": [
+        {
+          "path": "library/components/react-shadcn/ui/tooltip.tsx",
+          "sha256": "611e4305879b2773eafe76bf3c5caa69d8e47367fd97887a71634a27828f4433",
+          "bytes": 1820
+        }
+      ],
+      "registry": {
+        "name": "@shadcn",
+        "cli_version": "4.21.4",
+        "base": "radix",
+        "style": "new-york",
+        "commit": "unknown; exact retained file hashes pinned"
+      },
+      "dependencies": "library/components/react-shadcn/dependencies.json",
+      "provenance": "library/components/react-shadcn/provenance.json",
+      "api": "library/components/react-shadcn/API.md",
+      "license": {
+        "spdx": "MIT",
+        "notice": "library/components/react-shadcn/LICENSE.md",
+        "sha256": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f"
+      },
+      "adaptation": "unchanged source copy; host CSS/composition separate",
+      "verification": {
+        "source_integrity": "recorded",
+        "build": "not-run in reusable package",
+        "browser": "not-run in reusable package",
+        "visual": "not-run",
+        "human": "not-run"
+      },
+      "limitations": [
+        "Host alias/theme/dependencies required",
+        "Copied source is not a fresh browser/library-correctness pass"
+      ]
+    },
+    {
+      "id": "component.shadcn-badge",
+      "type": "component",
+      "title": "Actual shadcn/Radix badge",
+      "job": [
+        "review-records"
+      ],
+      "platform": [
+        "web",
+        "touch"
+      ],
+      "entities": [
+        "record",
+        "field",
+        "view"
+      ],
+      "actions": [
+        "review-records"
+      ],
+      "states": [
+        "status-label"
+      ],
+      "density": [
+        "standard"
+      ],
+      "accessibility": [
+        "radix-or-native-semantics",
+        "app-labels-required",
+        "keyboard-check-required"
+      ],
+      "stack": [
+        "react-shadcn"
+      ],
+      "source_files": [
+        {
+          "path": "library/components/react-shadcn/ui/badge.tsx",
+          "sha256": "13a9380dfff853ee730c14a52df49f22aecd31f40f2998d7c1e7ec458b6e1650",
+          "bytes": 1766
+        }
+      ],
+      "registry": {
+        "name": "@shadcn",
+        "cli_version": "4.21.4",
+        "base": "radix",
+        "style": "new-york",
+        "commit": "unknown; exact retained file hashes pinned"
+      },
+      "dependencies": "library/components/react-shadcn/dependencies.json",
+      "provenance": "library/components/react-shadcn/provenance.json",
+      "api": "library/components/react-shadcn/API.md",
+      "license": {
+        "spdx": "MIT",
+        "notice": "library/components/react-shadcn/LICENSE.md",
+        "sha256": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f"
+      },
+      "adaptation": "unchanged source copy; host CSS/composition separate",
+      "verification": {
+        "source_integrity": "recorded",
+        "build": "not-run in reusable package",
+        "browser": "not-run in reusable package",
+        "visual": "not-run",
+        "human": "not-run"
+      },
+      "limitations": [
+        "Host alias/theme/dependencies required",
+        "Copied source is not a fresh browser/library-correctness pass"
+      ]
+    },
+    {
+      "id": "component.shadcn-checkbox",
+      "type": "component",
+      "title": "Actual shadcn/Radix checkbox",
+      "job": [
+        "select-records"
+      ],
+      "platform": [
+        "web",
+        "touch"
+      ],
+      "entities": [
+        "record",
+        "field",
+        "view"
+      ],
+      "actions": [
+        "select-records"
+      ],
+      "states": [
+        "checked",
+        "unchecked",
+        "indeterminate",
+        "disabled"
+      ],
+      "density": [
+        "standard"
+      ],
+      "accessibility": [
+        "radix-or-native-semantics",
+        "app-labels-required",
+        "keyboard-check-required"
+      ],
+      "stack": [
+        "react-shadcn"
+      ],
+      "source_files": [
+        {
+          "path": "library/components/react-shadcn/ui/checkbox.tsx",
+          "sha256": "d3da4d7c35a3e3ebc80724fca69407e892127851d3c89d707ae1cc0d4d13dfb6",
+          "bytes": 1190
+        }
+      ],
+      "registry": {
+        "name": "@shadcn",
+        "cli_version": "4.21.4",
+        "base": "radix",
+        "style": "new-york",
+        "commit": "unknown; exact retained file hashes pinned"
+      },
+      "dependencies": "library/components/react-shadcn/dependencies.json",
+      "provenance": "library/components/react-shadcn/provenance.json",
+      "api": "library/components/react-shadcn/API.md",
+      "license": {
+        "spdx": "MIT",
+        "notice": "library/components/react-shadcn/LICENSE.md",
+        "sha256": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f"
+      },
+      "adaptation": "unchanged source copy; host CSS/composition separate",
+      "verification": {
+        "source_integrity": "recorded",
+        "build": "not-run in reusable package",
+        "browser": "not-run in reusable package",
+        "visual": "not-run",
+        "human": "not-run"
+      },
+      "limitations": [
+        "Host alias/theme/dependencies required",
+        "Copied source is not a fresh browser/library-correctness pass"
+      ]
+    },
+    {
+      "id": "component.shadcn-textarea",
+      "type": "component",
+      "title": "Actual shadcn/Radix textarea",
+      "job": [
+        "edit-next-action"
+      ],
+      "platform": [
+        "web",
+        "touch"
+      ],
+      "entities": [
+        "record",
+        "field",
+        "view"
+      ],
+      "actions": [
+        "edit-next-action"
+      ],
+      "states": [
+        "empty",
+        "editing",
+        "invalid",
+        "disabled"
+      ],
+      "density": [
+        "standard"
+      ],
+      "accessibility": [
+        "radix-or-native-semantics",
+        "app-labels-required",
+        "keyboard-check-required"
+      ],
+      "stack": [
+        "react-shadcn"
+      ],
+      "source_files": [
+        {
+          "path": "library/components/react-shadcn/ui/textarea.tsx",
+          "sha256": "5cafcfeeee29534f449387a16b585f5923d2faab1a0cdc50a874416b175f59ce",
+          "bytes": 749
+        }
+      ],
+      "registry": {
+        "name": "@shadcn",
+        "cli_version": "4.21.4",
+        "base": "radix",
+        "style": "new-york",
+        "commit": "unknown; exact retained file hashes pinned"
+      },
+      "dependencies": "library/components/react-shadcn/dependencies.json",
+      "provenance": "library/components/react-shadcn/provenance.json",
+      "api": "library/components/react-shadcn/API.md",
+      "license": {
+        "spdx": "MIT",
+        "notice": "library/components/react-shadcn/LICENSE.md",
+        "sha256": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f"
+      },
+      "adaptation": "unchanged source copy; host CSS/composition separate",
+      "verification": {
+        "source_integrity": "recorded",
+        "build": "not-run in reusable package",
+        "browser": "not-run in reusable package",
+        "visual": "not-run",
+        "human": "not-run"
+      },
+      "limitations": [
+        "Host alias/theme/dependencies required",
+        "Copied source is not a fresh browser/library-correctness pass"
+      ]
+    },
+    {
+      "id": "component.shadcn-separator",
+      "type": "component",
+      "title": "Actual shadcn/Radix separator",
+      "job": [
+        "review-records"
+      ],
+      "platform": [
+        "web",
+        "touch"
+      ],
+      "entities": [
+        "record",
+        "field",
+        "view"
+      ],
+      "actions": [
+        "review-records"
+      ],
+      "states": [
+        "decorative",
+        "semantic"
+      ],
+      "density": [
+        "standard"
+      ],
+      "accessibility": [
+        "radix-or-native-semantics",
+        "app-labels-required",
+        "keyboard-check-required"
+      ],
+      "stack": [
+        "react-shadcn"
+      ],
+      "source_files": [
+        {
+          "path": "library/components/react-shadcn/ui/separator.tsx",
+          "sha256": "ad7d5403fe337160e41dbf04147896e448ae3a747b8d06660d627d74d60021bc",
+          "bytes": 684
+        }
+      ],
+      "registry": {
+        "name": "@shadcn",
+        "cli_version": "4.21.4",
+        "base": "radix",
+        "style": "new-york",
+        "commit": "unknown; exact retained file hashes pinned"
+      },
+      "dependencies": "library/components/react-shadcn/dependencies.json",
+      "provenance": "library/components/react-shadcn/provenance.json",
+      "api": "library/components/react-shadcn/API.md",
+      "license": {
+        "spdx": "MIT",
+        "notice": "library/components/react-shadcn/LICENSE.md",
+        "sha256": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f"
+      },
+      "adaptation": "unchanged source copy; host CSS/composition separate",
+      "verification": {
+        "source_integrity": "recorded",
+        "build": "not-run in reusable package",
+        "browser": "not-run in reusable package",
+        "visual": "not-run",
+        "human": "not-run"
+      },
+      "limitations": [
+        "Host alias/theme/dependencies required",
+        "Copied source is not a fresh browser/library-correctness pass"
+      ]
+    },
+    {
+      "id": "pattern.queue-detail",
+      "title": "Work queue with identifiable detail and next action",
+      "job": [
+        "review-records",
+        "edit-next-action"
+      ],
+      "entities": [
+        "record",
+        "next-action",
+        "owner",
+        "status"
+      ],
+      "actions": [
+        "find",
+        "filter",
+        "open-detail",
+        "edit",
+        "save",
+        "cancel"
+      ],
+      "states": [
+        "empty",
+        "detail-open",
+        "editing",
+        "saving",
+        "save-error",
+        "saved"
+      ],
+      "stack": [
+        "react-shadcn",
+        "native-js"
+      ],
+      "composition": [
+        "component.shadcn-dialog",
+        "component.shadcn-button",
+        "component.shadcn-textarea"
+      ],
+      "hierarchy": [
+        "task context",
+        "work queue with record identity and next action",
+        "selected detail and edit feedback"
+      ],
+      "sequence": [
+        "find target",
+        "open exact identity",
+        "edit action",
+        "save or retain draft on failure"
+      ],
+      "transitions": [
+        "save-error \u2192 retry with same draft",
+        "cancel/Escape \u2192 discard draft and restore focus"
+      ],
+      "responsive": "Queue becomes clear touch records; detail remains reachable and labeled",
+      "failure": "Preserve intended edits and avoid committing a failed save; host provides persistence/auth",
+      "tradeoff": "Keeps list context while editing; app must own committed state and focus policy",
+      "unsuitable": "Marketing hero or read-only analytics without record actions",
+      "example": "example.queue-detail",
+      "type": "pattern",
+      "platform": [
+        "web",
+        "touch"
+      ],
+      "density": [
+        "standard"
+      ],
+      "accessibility": [
+        "keyboard",
+        "labels",
+        "focus-policy",
+        "error-feedback"
+      ],
+      "license": {
+        "spdx": "MIT",
+        "notice": "licenses/ORIGINAL-MIT.txt",
+        "sha256": "43a5dd3ccba319d8c9218e8131307d59cc3e43e8b2480929fb899f5353068a7b"
+      },
+      "verification": {
+        "source_integrity": "recorded",
+        "build": "not-run in reusable package",
+        "browser": "not-run in reusable package",
+        "visual": "not-run",
+        "human": "not-run"
+      },
+      "source_basis": "original proposed composition from inspected retained APIs; not extracted from private app pixels"
+    },
+    {
+      "id": "pattern.selection-actions",
+      "title": "Multi-selection with contextual action",
+      "job": [
+        "select-records"
+      ],
+      "entities": [
+        "record-id",
+        "selection-set",
+        "context-action"
+      ],
+      "actions": [
+        "select",
+        "clear",
+        "apply"
+      ],
+      "states": [
+        "unselected",
+        "partially-selected",
+        "selected",
+        "action-disabled"
+      ],
+      "stack": [
+        "native-js",
+        "react-shadcn"
+      ],
+      "composition": [
+        "component.native-workbench",
+        "component.shadcn-checkbox",
+        "component.shadcn-button"
+      ],
+      "hierarchy": [
+        "stable record identity",
+        "native checkbox per record",
+        "selected count and contextual action"
+      ],
+      "sequence": [
+        "select identities",
+        "inspect selection count",
+        "apply to exact selected IDs"
+      ],
+      "transitions": [
+        "zero selections \u2192 disabled action",
+        "toggle \u2192 immutable selection snapshot"
+      ],
+      "responsive": "Touch labels enlarge hit region; avoid color-only selection",
+      "failure": "Callback owns authorization, partial success and idempotency; example does not fabricate bulk commit",
+      "tradeoff": "Supports focused batch work; selection and open-detail actions remain distinct",
+      "unsuitable": "Irreversible bulk provider operations without their own contract",
+      "example": "example.native-slices",
+      "type": "pattern",
+      "platform": [
+        "web",
+        "touch"
+      ],
+      "density": [
+        "standard"
+      ],
+      "accessibility": [
+        "keyboard",
+        "labels",
+        "focus-policy",
+        "error-feedback"
+      ],
+      "license": {
+        "spdx": "MIT",
+        "notice": "licenses/ORIGINAL-MIT.txt",
+        "sha256": "43a5dd3ccba319d8c9218e8131307d59cc3e43e8b2480929fb899f5353068a7b"
+      },
+      "verification": {
+        "source_integrity": "recorded",
+        "build": "not-run in reusable package",
+        "browser": "not-run in reusable package",
+        "visual": "not-run",
+        "human": "not-run"
+      },
+      "source_basis": "original proposed composition from inspected retained APIs; not extracted from private app pixels"
+    },
+    {
+      "id": "pattern.recovery-form",
+      "title": "Editing with async failure recovery and retry",
+      "job": [
+        "edit-next-action"
+      ],
+      "entities": [
+        "committed-record",
+        "draft",
+        "save-attempt"
+      ],
+      "actions": [
+        "edit",
+        "validate",
+        "save",
+        "retry",
+        "cancel"
+      ],
+      "states": [
+        "editing",
+        "invalid",
+        "saving",
+        "save-error",
+        "saved"
+      ],
+      "stack": [
+        "native-js",
+        "react-shadcn"
+      ],
+      "composition": [
+        "component.native-workbench",
+        "component.shadcn-input",
+        "component.shadcn-textarea",
+        "component.shadcn-button"
+      ],
+      "hierarchy": [
+        "record context",
+        "labeled required field",
+        "save status and retry/cancel"
+      ],
+      "sequence": [
+        "enter draft",
+        "validate",
+        "await save",
+        "retain on error",
+        "retry exact intended record"
+      ],
+      "transitions": [
+        "pending \u2192 disabled editing/actions",
+        "save-error \u2192 draft retained",
+        "successful save \u2192 committed state; clear permitted draft"
+      ],
+      "responsive": "Inputs and feedback remain usable at touch width; native validation plus explicit error linkage",
+      "failure": "Never claim server success or write committed state before real callback success",
+      "tradeoff": "Recoverable local slice; privacy/TTL/concurrent edits need application contract",
+      "unsuitable": "Secret/password draft persistence or invented backend guarantees",
+      "example": "example.native-slices",
+      "type": "pattern",
+      "platform": [
+        "web",
+        "touch"
+      ],
+      "density": [
+        "standard"
+      ],
+      "accessibility": [
+        "keyboard",
+        "labels",
+        "focus-policy",
+        "error-feedback"
+      ],
+      "license": {
+        "spdx": "MIT",
+        "notice": "licenses/ORIGINAL-MIT.txt",
+        "sha256": "43a5dd3ccba319d8c9218e8131307d59cc3e43e8b2480929fb899f5353068a7b"
+      },
+      "verification": {
+        "source_integrity": "recorded",
+        "build": "not-run in reusable package",
+        "browser": "not-run in reusable package",
+        "visual": "not-run",
+        "human": "not-run"
+      },
+      "source_basis": "original proposed composition from inspected retained APIs; not extracted from private app pixels"
+    },
+    {
+      "id": "pattern.mobile-list-detail",
+      "title": "Touch list to detail with Back and focus return",
+      "job": [
+        "review-records"
+      ],
+      "entities": [
+        "record-id",
+        "list",
+        "selected-detail"
+      ],
+      "actions": [
+        "open-detail",
+        "back"
+      ],
+      "states": [
+        "list",
+        "detail-open",
+        "returned"
+      ],
+      "stack": [
+        "native-js"
+      ],
+      "composition": [
+        "component.native-workbench"
+      ],
+      "hierarchy": [
+        "readable identity list",
+        "one selected detail",
+        "explicit Back action"
+      ],
+      "sequence": [
+        "tap or keyboard-open identity",
+        "inspect detail",
+        "Back returns to origin"
+      ],
+      "transitions": [
+        "open \u2192 detail focus",
+        "Back \u2192 origin focus"
+      ],
+      "responsive": "One task panel at a time on narrow view; keep stable IDs and meaningful labels",
+      "failure": "Missing/deleted item and reload state require host handling; no URL navigation claim",
+      "tradeoff": "Small local task flow, not full navigation framework",
+      "unsuitable": "Complex nested routing or virtualized grids without added semantics",
+      "example": "example.native-slices",
+      "type": "pattern",
+      "platform": [
+        "web",
+        "touch"
+      ],
+      "density": [
+        "standard"
+      ],
+      "accessibility": [
+        "keyboard",
+        "labels",
+        "focus-policy",
+        "error-feedback"
+      ],
+      "license": {
+        "spdx": "MIT",
+        "notice": "licenses/ORIGINAL-MIT.txt",
+        "sha256": "43a5dd3ccba319d8c9218e8131307d59cc3e43e8b2480929fb899f5353068a7b"
+      },
+      "verification": {
+        "source_integrity": "recorded",
+        "build": "not-run in reusable package",
+        "browser": "not-run in reusable package",
+        "visual": "not-run",
+        "human": "not-run"
+      },
+      "source_basis": "original proposed composition from inspected retained APIs; not extracted from private app pixels"
+    },
+    {
+      "id": "example.native-slices",
+      "type": "example",
+      "title": "Original native selection, mobile detail and recovery slices",
+      "job": [
+        "select-records",
+        "review-records",
+        "edit-next-action"
+      ],
+      "platform": [
+        "web",
+        "touch"
+      ],
+      "entities": [
+        "synthetic-record",
+        "draft"
+      ],
+      "actions": [
+        "select",
+        "open-detail",
+        "save",
+        "retry"
+      ],
+      "states": [
+        "selected",
+        "detail-open",
+        "save-error"
+      ],
+      "stack": [
+        "native-js"
+      ],
+      "source_files": [
+        {
+          "path": "library/examples/native-task-slices.mjs",
+          "sha256": "2a57ff3c55e6e076e3d93e4021507d7554fc0f731328541fe8a0794bbb62ca40",
+          "bytes": 1539
+        }
+      ],
+      "fixture_data": "Caller supplies synthetic, non-sensitive stable IDs/labels; no hidden real provider data",
+      "license": {
+        "spdx": "MIT",
+        "notice": "licenses/ORIGINAL-MIT.txt",
+        "sha256": "43a5dd3ccba319d8c9218e8131307d59cc3e43e8b2480929fb899f5353068a7b"
+      },
+      "verification": {
+        "source_integrity": "recorded",
+        "build": "not-run in reusable package",
+        "browser": "not-run in reusable package",
+        "visual": "not-run",
+        "human": "not-run"
+      },
+      "limitations": [
+        "Source composition example; current renderer tests do not execute this file",
+        "Caller owns persistence/action outcome"
+      ]
+    },
+    {
+      "id": "example.queue-detail",
+      "type": "example",
+      "title": "Original React controlled queue/detail editing slice",
+      "job": [
+        "review-records",
+        "edit-next-action"
+      ],
+      "platform": [
+        "web",
+        "touch"
+      ],
+      "entities": [
+        "synthetic-record",
+        "next-action"
+      ],
+      "actions": [
+        "open-detail",
+        "edit",
+        "save",
+        "retry",
+        "cancel"
+      ],
+      "states": [
+        "open",
+        "editing",
+        "saving",
+        "save-error",
+        "closed"
+      ],
+      "stack": [
+        "react-shadcn"
+      ],
+      "source_files": [
+        {
+          "path": "library/examples/queue-detail.tsx",
+          "sha256": "712d757a37a2a4dbe49dd675517a208674f64fd7cf9078629e5e139e43668350",
+          "bytes": 2445
+        }
+      ],
+      "fixture_data": "Caller-supplied record IDs/title/action and save callback; no invented successful backend",
+      "license": {
+        "spdx": "MIT",
+        "notice": "licenses/ORIGINAL-MIT.txt",
+        "sha256": "43a5dd3ccba319d8c9218e8131307d59cc3e43e8b2480929fb899f5353068a7b"
+      },
+      "verification": {
+        "source_integrity": "recorded",
+        "build": "not-run in reusable package",
+        "browser": "not-run in reusable package",
+        "visual": "not-run",
+        "human": "not-run"
+      },
+      "limitations": [
+        "Host build/theme/alias and real task verification required",
+        "Example has no automatic persistence or source visual acceptance"
+      ]
+    },
+    {
+      "id": "example.local-ledger",
+      "type": "example",
+      "title": "Integer-kopeck local ledger with transfer and recovery",
+      "job": [
+        "track-finances",
+        "edit-transaction"
+      ],
+      "platform": [
+        "web",
+        "touch"
+      ],
+      "entities": [
+        "account",
+        "transaction",
+        "category",
+        "budget"
+      ],
+      "actions": [
+        "add",
+        "edit",
+        "validate",
+        "save",
+        "retry",
+        "transfer"
+      ],
+      "states": [
+        "editing",
+        "invalid",
+        "saving",
+        "save-error",
+        "saved",
+        "reloaded"
+      ],
+      "density": [
+        "standard"
+      ],
+      "accessibility": [
+        "host-labels-required",
+        "host-keyboard-required"
+      ],
+      "stack": [
+        "react-shadcn"
+      ],
+      "source_files": [
+        {
+          "path": "library/examples/local-ledger/data.js",
+          "sha256": "e839e24dc234d03aab7deb5c2a7f8b07e7d6a44bb2580d4f71c818da7c5ae76a",
+          "bytes": 2778
+        },
+        {
+          "path": "library/examples/local-ledger/usePocket.js",
+          "sha256": "e6632b26d613d45d1ec568d5f9c256cf06c5b386d82338983f20be24d92e008c",
+          "bytes": 2247
+        },
+        {
+          "path": "library/examples/local-ledger/API.md",
+          "sha256": "fdd5e1dac75b0d2e2c06b94245eba6b22f158df42a43553a43434ec966f51bb6",
+          "bytes": 1501
+        }
+      ],
+      "api": "library/examples/local-ledger/API.md",
+      "license": {
+        "spdx": "MIT",
+        "notice": "licenses/ORIGINAL-MIT.txt",
+        "sha256": "43a5dd3ccba319d8c9218e8131307d59cc3e43e8b2480929fb899f5353068a7b"
+      },
+      "verification": {
+        "source_integrity": "recorded",
+        "build": "not-run in reusable package",
+        "browser": "not-run in reusable package",
+        "visual": "not-run",
+        "human": "not-run"
+      },
+      "limitations": [
+        "Synthetic October2026 fixture; replace dates/accounts/keys",
+        "Browser-local persistence only; no bank or multi-user guarantee"
+      ],
+      "source_basis": "Original proposed reusable composition; no private visual research or user preference is distributed."
+    },
+    {
+      "id": "pattern.own-account-transfer",
+      "title": "Own-account transfer with exact minor units and recovery",
+      "job": [
+        "track-finances",
+        "edit-transaction"
+      ],
+      "entities": [
+        "source-account",
+        "destination-account",
+        "integer-amount",
+        "committed-transaction",
+        "draft"
+      ],
+      "actions": [
+        "choose-type",
+        "choose-accounts",
+        "validate",
+        "save",
+        "retry",
+        "reload"
+      ],
+      "states": [
+        "editing",
+        "invalid",
+        "saving",
+        "save-error",
+        "saved"
+      ],
+      "stack": [
+        "native-js",
+        "react-shadcn"
+      ],
+      "composition": [
+        "component.native-workbench",
+        "component.shadcn-input",
+        "component.shadcn-textarea",
+        "component.shadcn-button"
+      ],
+      "hierarchy": [
+        "transaction type and exact amount",
+        "two different owned accounts",
+        "save/error feedback"
+      ],
+      "sequence": [
+        "choose transfer",
+        "enter positive integer minor units",
+        "choose different accounts",
+        "save",
+        "preserve draft on failure",
+        "retry once"
+      ],
+      "transitions": [
+        "transfer: combined balance unchanged",
+        "save-error: original transaction unchanged, draft retained",
+        "success: debit and credit exactly once"
+      ],
+      "responsive": "One labeled editor; phone targets enlarged separately",
+      "failure": "Reject same-account destination and fractional minor units; never treat transfer as expense",
+      "tradeoff": "Local example; backend concurrency, auth and idempotency need a separate contract",
+      "unsuitable": "External payment execution without provider contracts",
+      "example": "example.local-ledger",
+      "type": "pattern",
+      "platform": [
+        "web",
+        "touch"
+      ],
+      "density": [
+        "standard"
+      ],
+      "accessibility": [
+        "keyboard",
+        "labels",
+        "focus-policy",
+        "error-feedback"
+      ],
+      "license": {
+        "spdx": "MIT",
+        "notice": "licenses/ORIGINAL-MIT.txt",
+        "sha256": "43a5dd3ccba319d8c9218e8131307d59cc3e43e8b2480929fb899f5353068a7b"
+      },
+      "verification": {
+        "source_integrity": "recorded",
+        "build": "not-run in reusable package",
+        "browser": "not-run in reusable package",
+        "visual": "not-run",
+        "human": "not-run"
+      },
+      "source_basis": "Original proposed reusable composition; no private visual research or user preference is distributed."
+    },
+    {
+      "id": "pattern.selected-object-workspace",
+      "title": "Selected work object with contextual navigator and next action",
+      "job": [
+        "edit-next-action"
+      ],
+      "entities": [
+        "selected-record",
+        "stage",
+        "properties",
+        "next-action"
+      ],
+      "actions": [
+        "filter",
+        "select",
+        "open-editor",
+        "save",
+        "retry"
+      ],
+      "states": [
+        "editing",
+        "invalid",
+        "saving",
+        "save-error",
+        "saved"
+      ],
+      "stack": [
+        "native-js",
+        "react-shadcn"
+      ],
+      "composition": [
+        "component.native-workbench",
+        "component.shadcn-input",
+        "component.shadcn-textarea",
+        "component.shadcn-button"
+      ],
+      "hierarchy": [
+        "stage navigator",
+        "selected identity and next action",
+        "compact record switcher",
+        "context properties"
+      ],
+      "sequence": [
+        "find record",
+        "select exact identity",
+        "inspect next action",
+        "edit with recovery"
+      ],
+      "transitions": [
+        "selection: stable identity across panes",
+        "filter: usable empty state",
+        "save: all contexts derive from committed model"
+      ],
+      "responsive": "Readable selected workspace and list; never shrink labels to 7px",
+      "failure": "Keep selected identity explicit when filter excludes it",
+      "tradeoff": "Focused action rather than aggregate overview; board suits comparison better",
+      "unsuitable": "Pure analytics or bulk actions without selection model",
+      "example": "example.queue-detail",
+      "type": "pattern",
+      "platform": [
+        "web",
+        "touch"
+      ],
+      "density": [
+        "standard"
+      ],
+      "accessibility": [
+        "keyboard",
+        "labels",
+        "focus-policy",
+        "error-feedback"
+      ],
+      "license": {
+        "spdx": "MIT",
+        "notice": "licenses/ORIGINAL-MIT.txt",
+        "sha256": "43a5dd3ccba319d8c9218e8131307d59cc3e43e8b2480929fb899f5353068a7b"
+      },
+      "verification": {
+        "source_integrity": "recorded",
+        "build": "not-run in reusable package",
+        "browser": "not-run in reusable package",
+        "visual": "not-run",
+        "human": "not-run"
+      },
+      "source_basis": "Original proposed reusable composition; no private visual research or user preference is distributed."
+    }
+  ],
+  "reference_pixels": [],
+  "method": "Small typed local source index; deterministic token/facet lookup; no embedding service or private screenshot corpus"
+}

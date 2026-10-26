@@ -1,0 +1,2 @@
+# Optional browser renderer and browser tests only; core helpers use stdlib.
+playwright==1.58.0

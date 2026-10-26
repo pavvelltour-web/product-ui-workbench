@@ -1,0 +1,32 @@
+{
+  "source": "Dependency baseline accompanying retained source snapshots; revalidate compatibility in the consuming project.",
+  "component_cli_version": "4.21.4",
+  "registry": "@shadcn",
+  "base": "radix",
+  "style": "new-york",
+  "runtime": {
+    "react": "19.3.0",
+    "react-dom": "19.3.0",
+    "cn": "0.4.0",
+    "radix-ui": "1.8.1",
+    "lucide-react": "1.57.0",
+    "class-variance-authority": "0.7.1",
+    "tw-animate-css": "1.4.0"
+  },
+  "build": {
+    "tailwindcss": "4.3.3",
+    "@tailwindcss/vite": "4.3.3",
+    "vite": "8.3.4",
+    "typescript": "7.0.2"
+  },
+  "known_dependency_licenses": {
+    "cn": "MIT",
+    "radix-ui": "MIT",
+    "class-variance-authority": "Apache-2.0"
+  },
+  "alias": "@/components/ui must resolve to retained ui source destination; Dialog imports Button through this alias",
+  "css": "Host Tailwind4 semantic theme tokens and animation utilities required; no private reference assets",
+  "installation": "Not performed by this package; host project dependency changes require actual authorization",
+  "verification": "Source/API compatibility baseline only; no fresh registry retrieval or blanket consuming-app verification claimed.",
+  "distribution": "Dependency runtimes are not bundled here; component MIT is not blanket licensing of dependencies"
+}

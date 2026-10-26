@@ -1,0 +1,512 @@
+{
+  "name": "product-ui-workbench",
+  "version": "0.11.0",
+  "entry": "SKILL.md",
+  "installed": false,
+  "activated": false,
+  "cli": "scripts/pipeline.py",
+  "runtime": "Python >=3.10 standard library; optional browser checks need Python Playwright and an explicit existing Chrome/Chromium executable",
+  "rights": "Original code MIT; upstream notices retained; no external reference pixels bundled",
+  "files": [
+    {
+      "path": ".gitattributes",
+      "sha256": "a79691a93b46e49ce460c26ef22afcc03d6eca1e63bf2edbc20e96159510f6c9",
+      "bytes": 14
+    },
+    {
+      "path": ".gitignore",
+      "sha256": "0114ca5b2342e8399bd969f18f5dac920c6958f85dfa2d0e4a74c614a194adc9",
+      "bytes": 186
+    },
+    {
+      "path": "LICENSE",
+      "sha256": "43a5dd3ccba319d8c9218e8131307d59cc3e43e8b2480929fb899f5353068a7b",
+      "bytes": 1090
+    },
+    {
+      "path": "NOTICE.md",
+      "sha256": "70a8013a7663e057805a18d66b76b4b306af08ec42abca8ebd02d32220cf2f06",
+      "bytes": 527
+    },
+    {
+      "path": "README.md",
+      "sha256": "c688b13bf539ae0d2e442b7470bec3036053b01d7c03d249ed3b6f3480970bd8",
+      "bytes": 16034
+    },
+    {
+      "path": "SKILL.md",
+      "sha256": "0b0a797e04ee728acb1af73d4b485bf75d03fb314d697b4a7e6e09d02f135f2e",
+      "bytes": 7334
+    },
+    {
+      "path": "docs/API.md",
+      "sha256": "95cb6609f254558750d3cbaf9c7d1182323b9b452d066e631038cacc7272ca83",
+      "bytes": 23830
+    },
+    {
+      "path": "docs/DEPENDENCIES.md",
+      "sha256": "d2627aa1f7d52956a6f9b4c4c2b1ce12cbfcb98d5fd1f27fbd2163d05a26d951",
+      "bytes": 4565
+    },
+    {
+      "path": "docs/DESIGN_SYSTEM.md",
+      "sha256": "456d5d0fdb91e41fd3bdbf94dfbdbafff45d0729bb2096300b46c56b91c4b3f1",
+      "bytes": 11292
+    },
+    {
+      "path": "docs/REFERENCES.md",
+      "sha256": "13c7ecf87606b32d91048f67c001099a789429f54438cb52d4b992a4d17961ad",
+      "bytes": 2278
+    },
+    {
+      "path": "docs/REFERENCE_SEARCH.md",
+      "sha256": "b93321615f9353dc1d24d4767c55660695961582ff0c075fd41b0d9b66e1a848",
+      "bytes": 14902
+    },
+    {
+      "path": "docs/USAGE.md",
+      "sha256": "0d184821d8bd6f757b2181f993a69efa3187250ac61da1a846c42be7c557a81c",
+      "bytes": 17279
+    },
+    {
+      "path": "docs/theme-matrix.example.json",
+      "sha256": "81f89c353739051029d7610f0fcb53bf763c8d382b5125125b2fd7c09683e7d8",
+      "bytes": 795
+    },
+    {
+      "path": "docs/tool-receipts.md",
+      "sha256": "e68b6e74c089422673d833fd9f0bc6f066895b4e0cfbe2f7e021c245ccbb36f6",
+      "bytes": 3263
+    },
+    {
+      "path": "docs/ux-discovery.example.json",
+      "sha256": "3237088b03a8463e97bb17d8322acabeb40ba58db7644db17ee59f494371f5fc",
+      "bytes": 4437
+    },
+    {
+      "path": "docs/ux-evidence.example.json",
+      "sha256": "42774bd842d71c7d02cf583eb8b3cefcdb0a8d5de9aff28a9d2c1a868c4a89f3",
+      "bytes": 2920
+    },
+    {
+      "path": "docs/ux-plan.example.json",
+      "sha256": "01f078bd5fa23e21a86b4eb7a260ceff407f831614ba7a244799af989a504c94",
+      "bytes": 2907
+    },
+    {
+      "path": "examples/offline-demo/index.html",
+      "sha256": "91ed22174b0dc010cc79aad1f2c1c57db1729caef497137027e848ab001939a5",
+      "bytes": 5608
+    },
+    {
+      "path": "examples/offline-demo/ux-plan.json",
+      "sha256": "351196568bab17f7544011f3a6150fe4c97739937539579204a52bd83ada60bd",
+      "bytes": 2958
+    },
+    {
+      "path": "library/components/API.md",
+      "sha256": "d461a7c62e7ab43efecaeb39a6657fcad2748d9f9450760731ed4c42c0df8ea9",
+      "bytes": 4304
+    },
+    {
+      "path": "library/components/native-workbench.css",
+      "sha256": "0e0cc311f81e1ac7add6e1768971890cd7c2d01b0351f4acad2f68946d6fcd39",
+      "bytes": 3806
+    },
+    {
+      "path": "library/components/native-workbench.mjs",
+      "sha256": "7679defb2b6ef0134040d104ae54616edffe348ae5dff7e5088e5d15b9db86b5",
+      "bytes": 12762
+    },
+    {
+      "path": "library/components/react-shadcn/API.md",
+      "sha256": "316ca66f4d16e11518f774297b6d375190277843f0fca23d98b81d14e71625e7",
+      "bytes": 3247
+    },
+    {
+      "path": "library/components/react-shadcn/LICENSE.md",
+      "sha256": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f",
+      "bytes": 1063
+    },
+    {
+      "path": "library/components/react-shadcn/dependencies.json",
+      "sha256": "f7bbc6d57cdc202f24fba50b2797ccdadeef5814017491162ec909abc4a9bdb0",
+      "bytes": 1295
+    },
+    {
+      "path": "library/components/react-shadcn/provenance.json",
+      "sha256": "813d194cd4e387239b6ecf1c3dd64e44bbf733eba77f9027179e9574f23ecf98",
+      "bytes": 2774
+    },
+    {
+      "path": "library/components/react-shadcn/tool-provenance.json",
+      "sha256": "ea5ae381d4cb37abd530fa310a6ee71705d62000e0a222799526b90b98b32f7f",
+      "bytes": 390
+    },
+    {
+      "path": "library/components/react-shadcn/ui/badge.tsx",
+      "sha256": "13a9380dfff853ee730c14a52df49f22aecd31f40f2998d7c1e7ec458b6e1650",
+      "bytes": 1766
+    },
+    {
+      "path": "library/components/react-shadcn/ui/button.tsx",
+      "sha256": "79dd6f75f8136394442202d6b8b922fb269eaad0a5dba579397c9d5b41f893bb",
+      "bytes": 2382
+    },
+    {
+      "path": "library/components/react-shadcn/ui/checkbox.tsx",
+      "sha256": "d3da4d7c35a3e3ebc80724fca69407e892127851d3c89d707ae1cc0d4d13dfb6",
+      "bytes": 1190
+    },
+    {
+      "path": "library/components/react-shadcn/ui/dialog.tsx",
+      "sha256": "dcd488cc5d713da215ce2037efd644f35904df755c70f31534706643db488514",
+      "bytes": 4280
+    },
+    {
+      "path": "library/components/react-shadcn/ui/input.tsx",
+      "sha256": "0c9457181f6ddc80969bcf854e92c362903a55b6e889fbef3fd85343ecc4af5b",
+      "bytes": 952
+    },
+    {
+      "path": "library/components/react-shadcn/ui/select.tsx",
+      "sha256": "9293fd75923693411cd443049fba313135014c4ad6997cfcde1e37693fc85b04",
+      "bytes": 6329
+    },
+    {
+      "path": "library/components/react-shadcn/ui/separator.tsx",
+      "sha256": "ad7d5403fe337160e41dbf04147896e448ae3a747b8d06660d627d74d60021bc",
+      "bytes": 684
+    },
+    {
+      "path": "library/components/react-shadcn/ui/tabs.tsx",
+      "sha256": "e1df6e2f95ece373ca909c1d54b8ba8cf4c47dd425c1784bbb9a01c38dd0936b",
+      "bytes": 3772
+    },
+    {
+      "path": "library/components/react-shadcn/ui/textarea.tsx",
+      "sha256": "5cafcfeeee29534f449387a16b585f5923d2faab1a0cdc50a874416b175f59ce",
+      "bytes": 749
+    },
+    {
+      "path": "library/components/react-shadcn/ui/tooltip.tsx",
+      "sha256": "611e4305879b2773eafe76bf3c5caa69d8e47367fd97887a71634a27828f4433",
+      "bytes": 1820
+    },
+    {
+      "path": "library/examples/README.md",
+      "sha256": "a2771da0371af652ce35a6caf7449ae37c2f492efe6e752b15d02dd5e76461dd",
+      "bytes": 974
+    },
+    {
+      "path": "library/examples/local-ledger/API.md",
+      "sha256": "fdd5e1dac75b0d2e2c06b94245eba6b22f158df42a43553a43434ec966f51bb6",
+      "bytes": 1501
+    },
+    {
+      "path": "library/examples/local-ledger/data.js",
+      "sha256": "e839e24dc234d03aab7deb5c2a7f8b07e7d6a44bb2580d4f71c818da7c5ae76a",
+      "bytes": 2778
+    },
+    {
+      "path": "library/examples/local-ledger/usePocket.js",
+      "sha256": "e6632b26d613d45d1ec568d5f9c256cf06c5b386d82338983f20be24d92e008c",
+      "bytes": 2247
+    },
+    {
+      "path": "library/examples/native-task-slices.mjs",
+      "sha256": "2a57ff3c55e6e076e3d93e4021507d7554fc0f731328541fe8a0794bbb62ca40",
+      "bytes": 1539
+    },
+    {
+      "path": "library/examples/queue-detail.tsx",
+      "sha256": "712d757a37a2a4dbe49dd675517a208674f64fd7cf9078629e5e139e43668350",
+      "bytes": 2445
+    },
+    {
+      "path": "library/manifest.json",
+      "sha256": "0dfad5b04b26fa69a91d6128ffdd19bca0f0a11244850dd7b63985bec18f3144",
+      "bytes": 42129
+    },
+    {
+      "path": "library/patterns/starter-items.json",
+      "sha256": "084f76ed6293059c7b53973b375afbdabd60fba38d10a4c7d4e1af4c755d9181",
+      "bytes": 6822
+    },
+    {
+      "path": "library/references/pattern-catalog.json",
+      "sha256": "aa175ff6ca1a65c28c47c237259d4177ca9b17bb603e58eaa393de983f4d5594",
+      "bytes": 58
+    },
+    {
+      "path": "licenses/ORIGINAL-MIT.txt",
+      "sha256": "43a5dd3ccba319d8c9218e8131307d59cc3e43e8b2480929fb899f5353068a7b",
+      "bytes": 1090
+    },
+    {
+      "path": "references/candidate-comparison.md",
+      "sha256": "2c5477ca761cc0bfc59f63f0139343c4b0ff8a5cda2b5a5a16a65f8caa6ec12e",
+      "bytes": 1837
+    },
+    {
+      "path": "references/implementation.md",
+      "sha256": "4f87f763056a2819448f4ac0d127b3678950df8e0d16cb229acf2435dae09a0a",
+      "bytes": 2756
+    },
+    {
+      "path": "references/iphone-glass.md",
+      "sha256": "cd14f5b172c42143b28a1e08ae56d1fcc71f1d6588efa8e94a6767fb35920ec8",
+      "bytes": 2349
+    },
+    {
+      "path": "references/paired-themes.md",
+      "sha256": "d9023656d277f64943d444a40399e1e71720249595da0fbf4c8b7b7b924c5d3e",
+      "bytes": 1677
+    },
+    {
+      "path": "references/reference-to-prompt.md",
+      "sha256": "7ea2cc5cd294d653db3dc5a8d56ea3a175675b03fc9eb2efc31aa2a72d8b1abe",
+      "bytes": 4081
+    },
+    {
+      "path": "references/render-review.md",
+      "sha256": "dc30461bac5fc5d160a9db7f8fb7dbb24486bcbced5b979868780acfc031bace",
+      "bytes": 3962
+    },
+    {
+      "path": "references/scenario-discovery.md",
+      "sha256": "f75ba39e6ce68c4a52d59873b0cb171e94449d5d94f40adb102bcada8338964c",
+      "bytes": 2380
+    },
+    {
+      "path": "references/tool-adapters.md",
+      "sha256": "f96f56212fdfdc31cda081f0d755dba81912108681d50938865fada41eab14a3",
+      "bytes": 3117
+    },
+    {
+      "path": "references/ux-hierarchy.md",
+      "sha256": "502480b83d80ed099492a3e71620d0d8a320976d03679f79e149ffaf2a7f3afc",
+      "bytes": 2273
+    },
+    {
+      "path": "requirements-render.txt",
+      "sha256": "fe2824b4a24dbbfb1a8e5baed74aaaa0d4c1acb5f0cdada6990d764dc0655f68",
+      "bytes": 96
+    },
+    {
+      "path": "schemas/library.schema.json",
+      "sha256": "62f974ff4c80f0b740a1e58e7ae01dd92a19dd06ac6a7a934fa0a8b1a3c63bdc",
+      "bytes": 1082
+    },
+    {
+      "path": "schemas/records.schema.json",
+      "sha256": "aa4e09b6d2b4c9dd42e24727159c985d2cc7015209f47f41f4ae948bc5681f01",
+      "bytes": 4615
+    },
+    {
+      "path": "schemas/source-closure.schema.json",
+      "sha256": "bb048d8c911df2b21f8d2090c208fd3b46f2a868406efb16e586d81e957e7d2a",
+      "bytes": 811
+    },
+    {
+      "path": "schemas/tool-receipt.schema.json",
+      "sha256": "db5d2238c1a41bb5075fd40c5127359c4ee795151b56c8badce4892e4c30e6fd",
+      "bytes": 984
+    },
+    {
+      "path": "schemas/ux-discovery.schema.json",
+      "sha256": "5117d7e28a64c37bd31d727f19f473624fafea35668a94a19d6bf368326a2de8",
+      "bytes": 15640
+    },
+    {
+      "path": "scripts/_payload.py",
+      "sha256": "1cfbdeb390e5da5964fb5f31a410b7624f14dbb5b220b71612dfede7ebd603fa",
+      "bytes": 5559
+    },
+    {
+      "path": "scripts/browser_probe.py",
+      "sha256": "bbce1d2cb5021a4ba0194360ad283950425a58fa3ba2b1e9f6d44c9edb2fc51a",
+      "bytes": 16944
+    },
+    {
+      "path": "scripts/check_public.py",
+      "sha256": "e5218de626e1d7bb3f813231e955bfe29fd977568e929a4e9472a99bf06b6719",
+      "bytes": 3174
+    },
+    {
+      "path": "scripts/demo.py",
+      "sha256": "6029036a50e1ac2daff80c7824928551f77fe0217fa175bebec2961535f4262b",
+      "bytes": 2899
+    },
+    {
+      "path": "scripts/design_loop.py",
+      "sha256": "70637281ae1c8cce9f3a3acb6e437885fecaee337d2a650e11b57fed73e8dc41",
+      "bytes": 15490
+    },
+    {
+      "path": "scripts/install.py",
+      "sha256": "f276c90455e0927af30ac1b50f45c68e6ec878965ff0f2cc72ff19ca279ebc7b",
+      "bytes": 5636
+    },
+    {
+      "path": "scripts/inventory.py",
+      "sha256": "97f1daf97c2ec07d36ea9768ca8464d1a198ed52885ff92841a6aecf9b0ebd51",
+      "bytes": 1208
+    },
+    {
+      "path": "scripts/library_seed.py",
+      "sha256": "027434627811656c6055a3d176c3dc5627fcb6e1008aec0b1f13cba689f74b0e",
+      "bytes": 11204
+    },
+    {
+      "path": "scripts/package.py",
+      "sha256": "212ee03b9b916274e235b31409b4a3881ef4e01be66acb3f8894b2e56fe1ce8b",
+      "bytes": 2626
+    },
+    {
+      "path": "scripts/pattern_catalog.py",
+      "sha256": "bcecb6490fdafebc76ccbe5e19e96665ce38211e98725be71873471d16b01626",
+      "bytes": 3994
+    },
+    {
+      "path": "scripts/pattern_loop.py",
+      "sha256": "f0bbb01597c37bb8ee62daa1f2ece965c905cf46ae841d896a87fda7e2c47171",
+      "bytes": 7941
+    },
+    {
+      "path": "scripts/pipeline.py",
+      "sha256": "00a9242f0a79bcbd9cf6524cd0976a4257a46b0e6a1210379a02e11d60949579",
+      "bytes": 50270
+    },
+    {
+      "path": "scripts/render_web.py",
+      "sha256": "0ef325fcad38efde677993067deb8476f9024ff2f3e402f6bd5dbf56f6d163c3",
+      "bytes": 9540
+    },
+    {
+      "path": "scripts/theme_matrix.py",
+      "sha256": "df66d3e406c2209298db216daf953d74b3eed3710750f380f221e1ad88bd8f2e",
+      "bytes": 6898
+    },
+    {
+      "path": "scripts/tool_receipt.py",
+      "sha256": "24d130782a93efa2574ab3a6dbaa704a365d21548ee7c6225165ad41a944db07",
+      "bytes": 6418
+    },
+    {
+      "path": "scripts/ux_contract.py",
+      "sha256": "5368127e05af11255db813dbc494468d3a0edef63b9a84a822e95e742ea647c7",
+      "bytes": 16837
+    },
+    {
+      "path": "scripts/ux_discovery.py",
+      "sha256": "ceb9fb4d4dd1de9eb0f2970340bef6c93a1511c8360d717adc983a83f849c832",
+      "bytes": 13188
+    },
+    {
+      "path": "tests/_browser_support.py",
+      "sha256": "f5725f270451b6e8f4d45832143126ee9abdb585f48a5f8c59664d4fc997f816",
+      "bytes": 1745
+    },
+    {
+      "path": "tests/test_browser_probe.py",
+      "sha256": "2c3e060679a6f7dc03a8e54637a07215b937946d0c0ad16260d67d7d7680a559",
+      "bytes": 17893
+    },
+    {
+      "path": "tests/test_closure.py",
+      "sha256": "af5cbf733de27cd4031a68414861f818cbff95f714c48a9944b906d28be0be91",
+      "bytes": 13621
+    },
+    {
+      "path": "tests/test_demo.py",
+      "sha256": "b854fe467613329650fe70c112f87433076636327e42d23024bc7cbe1998de36",
+      "bytes": 4923
+    },
+    {
+      "path": "tests/test_design_loop.py",
+      "sha256": "4b58afdbf23eddf5d305df384c0b15c048eead9b46e9b88ca5915960294ac325",
+      "bytes": 5180
+    },
+    {
+      "path": "tests/test_historical_review.py",
+      "sha256": "d0c0c294ebd938db71dc0ac971ae3f4fbfbda5b18a53a2989e8fa98722206c58",
+      "bytes": 3290
+    },
+    {
+      "path": "tests/test_install.py",
+      "sha256": "9b8c835f63c8762e005def5bb3c7ca815504530128c06bcdcc3e8868dae43dc2",
+      "bytes": 5107
+    },
+    {
+      "path": "tests/test_ledger.py",
+      "sha256": "8c3673b2c8630ce3d8aeb03a92a1dc58869332c250bdb35e567102750078de6c",
+      "bytes": 1912
+    },
+    {
+      "path": "tests/test_library.py",
+      "sha256": "4d2614f15a726a0e218248b8a9ed0542c51f7d0402a46375fcf8e4b771d9836a",
+      "bytes": 2951
+    },
+    {
+      "path": "tests/test_mjs_renderer.py",
+      "sha256": "e5b58e0e46b3e652f3f22fc0eda96d02a30e7805c7a867680c11013474937add",
+      "bytes": 2197
+    },
+    {
+      "path": "tests/test_package.py",
+      "sha256": "8406132933c3abd293cfc371f34885633fff8cfcc7bd1a1675c25d576d46f85b",
+      "bytes": 2234
+    },
+    {
+      "path": "tests/test_pattern_catalog.py",
+      "sha256": "89b88fe95893b3cb1fd81f236558c5825d2f1547744c7b1e14e4ee15ac3d5b4c",
+      "bytes": 1797
+    },
+    {
+      "path": "tests/test_pattern_loop.py",
+      "sha256": "999e7d6c15d2c029e99ef39a780641fcc6640c8fdb31413efcd5599dea26ded8",
+      "bytes": 4345
+    },
+    {
+      "path": "tests/test_pipeline.py",
+      "sha256": "0278c0b4e793f4bdb300f2dbd39a8825ac68918785f5da6c477b816597e73c57",
+      "bytes": 13411
+    },
+    {
+      "path": "tests/test_public_payload.py",
+      "sha256": "e76ab3a47a5fe71a7bee42e66e986cabe59878d64434cc34a6b14147922e8c74",
+      "bytes": 4090
+    },
+    {
+      "path": "tests/test_receipts.py",
+      "sha256": "e3afbdbbaca13f27dcc6beb41ae296b47cdb82ad399b12f4a19a8182bd666a76",
+      "bytes": 4834
+    },
+    {
+      "path": "tests/test_task_amend.py",
+      "sha256": "65a2a753de2caeccdcd0d1c8128e92da4d876cfd333bef467a8d82638165a710",
+      "bytes": 3476
+    },
+    {
+      "path": "tests/test_theme_matrix.py",
+      "sha256": "dcd0f9fb943fbf8b76b38d8d1c83f6fa228a83b4a64c66d040d6eb88e9ccfca9",
+      "bytes": 4938
+    },
+    {
+      "path": "tests/test_ux_contract.py",
+      "sha256": "f6743b1904be3f20c25485b3c1ae7d07659feb44b9d700023999e512774215bb",
+      "bytes": 8694
+    },
+    {
+      "path": "tests/test_ux_discovery.py",
+      "sha256": "4debbd833c957e67df60af40d6f077b48fcaee19efa7547b5770e030be8fab11",
+      "bytes": 8300
+    },
+    {
+      "path": "workbench.json",
+      "sha256": "a662c7855f2a1b09aad20e391d4650b74fda9c21e1abb40cc2cb02d57140c297",
+      "bytes": 222
+    }
+  ]
+}

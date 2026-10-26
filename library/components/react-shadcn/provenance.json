@@ -1,0 +1,79 @@
+{
+  "version": "1.0",
+  "source": "Retained shadcn/ui source snapshots; inspect exact files and host dependencies",
+  "registry": "@shadcn",
+  "base": "radix",
+  "style": "new-york",
+  "upstream_commit": "unknown; exact retained hashes are authoritative",
+  "receipt": {
+    "path": "library/components/react-shadcn/tool-provenance.json",
+    "sha256": "ea5ae381d4cb37abd530fa310a6ee71705d62000e0a222799526b90b98b32f7f",
+    "bytes": 390
+  },
+  "source_files": [
+    {
+      "path": "library/components/react-shadcn/ui/button.tsx",
+      "sha256": "79dd6f75f8136394442202d6b8b922fb269eaad0a5dba579397c9d5b41f893bb",
+      "bytes": 2382
+    },
+    {
+      "path": "library/components/react-shadcn/ui/dialog.tsx",
+      "sha256": "dcd488cc5d713da215ce2037efd644f35904df755c70f31534706643db488514",
+      "bytes": 4280
+    },
+    {
+      "path": "library/components/react-shadcn/ui/input.tsx",
+      "sha256": "0c9457181f6ddc80969bcf854e92c362903a55b6e889fbef3fd85343ecc4af5b",
+      "bytes": 952
+    },
+    {
+      "path": "library/components/react-shadcn/ui/tabs.tsx",
+      "sha256": "e1df6e2f95ece373ca909c1d54b8ba8cf4c47dd425c1784bbb9a01c38dd0936b",
+      "bytes": 3772
+    },
+    {
+      "path": "library/components/react-shadcn/ui/select.tsx",
+      "sha256": "9293fd75923693411cd443049fba313135014c4ad6997cfcde1e37693fc85b04",
+      "bytes": 6329
+    },
+    {
+      "path": "library/components/react-shadcn/ui/tooltip.tsx",
+      "sha256": "611e4305879b2773eafe76bf3c5caa69d8e47367fd97887a71634a27828f4433",
+      "bytes": 1820
+    },
+    {
+      "path": "library/components/react-shadcn/ui/badge.tsx",
+      "sha256": "13a9380dfff853ee730c14a52df49f22aecd31f40f2998d7c1e7ec458b6e1650",
+      "bytes": 1766
+    },
+    {
+      "path": "library/components/react-shadcn/ui/checkbox.tsx",
+      "sha256": "d3da4d7c35a3e3ebc80724fca69407e892127851d3c89d707ae1cc0d4d13dfb6",
+      "bytes": 1190
+    },
+    {
+      "path": "library/components/react-shadcn/ui/textarea.tsx",
+      "sha256": "5cafcfeeee29534f449387a16b585f5923d2faab1a0cdc50a874416b175f59ce",
+      "bytes": 749
+    },
+    {
+      "path": "library/components/react-shadcn/ui/separator.tsx",
+      "sha256": "ad7d5403fe337160e41dbf04147896e448ae3a747b8d06660d627d74d60021bc",
+      "bytes": 684
+    }
+  ],
+  "license": {
+    "spdx": "MIT",
+    "notice": "library/components/react-shadcn/LICENSE.md",
+    "sha256": "1564074e13439397221ffd522e2e504d56561994a23d371aa5e3ad43e4f5423f"
+  },
+  "adaptation": "No component source edits; product composition/theme lives separately",
+  "verification": {
+    "source_integrity": "recorded",
+    "build": "not-run in reusable package",
+    "browser": "not-run in reusable package",
+    "visual": "not-run",
+    "human": "not-run"
+  },
+  "private_reference_assets": false
+}

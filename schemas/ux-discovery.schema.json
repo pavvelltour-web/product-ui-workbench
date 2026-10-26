@@ -1,0 +1,596 @@
+{
+  "type": "object",
+  "additionalProperties": false,
+  "properties": {
+    "version": {
+      "const": "1.0"
+    },
+    "study_id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]{0,63}$"
+    },
+    "applicability": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "mode": {
+          "enum": [
+            "new-operational",
+            "rethought-operational",
+            "explicit-simulation"
+          ]
+        },
+        "reason": {
+          "type": "string",
+          "minLength": 1
+        }
+      },
+      "required": [
+        "mode",
+        "reason"
+      ]
+    },
+    "scope": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "kind": {
+          "const": "design-only"
+        },
+        "backend": {
+          "const": false
+        },
+        "product_ids": {
+          "type": "array",
+          "items": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,63}$"
+          },
+          "minItems": 1,
+          "uniqueItems": true
+        }
+      },
+      "required": [
+        "kind",
+        "backend",
+        "product_ids"
+      ]
+    },
+    "provenance": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "observer": {
+          "type": "string",
+          "minLength": 1
+        },
+        "method": {
+          "const": "manual-normalization"
+        },
+        "evidence_status": {
+          "const": "proposed-not-validated"
+        },
+        "chronology": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "kind": {
+              "const": "manual-attestation"
+            },
+            "statement": {
+              "type": "string",
+              "minLength": 1
+            },
+            "automatic_enforcement": {
+              "const": false
+            }
+          },
+          "required": [
+            "kind",
+            "statement",
+            "automatic_enforcement"
+          ]
+        },
+        "files": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9-]{0,63}$"
+              },
+              "path": {
+                "type": "string",
+                "minLength": 1
+              },
+              "sha256": {
+                "type": "string",
+                "pattern": "^[a-f0-9]{64}$"
+              },
+              "kind": {
+                "enum": [
+                  "simulated-notes",
+                  "design-decisions",
+                  "user-brief",
+                  "source-notes"
+                ]
+              }
+            },
+            "required": [
+              "id",
+              "path",
+              "sha256",
+              "kind"
+            ]
+          },
+          "minItems": 1
+        }
+      },
+      "required": [
+        "observer",
+        "method",
+        "evidence_status",
+        "chronology",
+        "files"
+      ]
+    },
+    "interviews": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,63}$"
+          },
+          "product_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,63}$"
+          },
+          "source_file_id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,63}$"
+          },
+          "persona": {
+            "type": "string",
+            "minLength": 1
+          },
+          "origin": {
+            "const": "simulated"
+          },
+          "evidence_level": {
+            "const": "hypothesis"
+          },
+          "conflicting_need": {
+            "type": "string",
+            "minLength": 1
+          },
+          "questions": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "question": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "followup": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "answer": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "answer_kind": {
+                  "const": "simulated"
+                },
+                "hypothesis": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "question",
+                "followup",
+                "answer",
+                "answer_kind",
+                "hypothesis"
+              ]
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "product_id",
+          "source_file_id",
+          "persona",
+          "origin",
+          "evidence_level",
+          "conflicting_need",
+          "questions"
+        ]
+      },
+      "minItems": 0
+    },
+    "products": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,63}$"
+          },
+          "name": {
+            "type": "string",
+            "minLength": 1
+          },
+          "source_file_ids": {
+            "type": "array",
+            "items": {
+              "type": "string",
+              "pattern": "^[a-z][a-z0-9-]{0,63}$"
+            },
+            "minItems": 1
+          },
+          "alternatives": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9-]{0,63}$"
+                },
+                "approach": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "benefit": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "tradeoff": {
+                  "type": "string",
+                  "minLength": 1
+                }
+              },
+              "required": [
+                "id",
+                "approach",
+                "benefit",
+                "tradeoff"
+              ]
+            },
+            "minItems": 2
+          },
+          "chosen": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9-]{0,63}$"
+              },
+              "reason": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "id",
+              "reason"
+            ]
+          },
+          "scenario": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "job": {
+                "type": "string",
+                "minLength": 1
+              },
+              "first_useful_entity": {
+                "type": "string",
+                "minLength": 1
+              },
+              "actions": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "pattern": "^[a-z][a-z0-9-]{0,63}$"
+                    },
+                    "label": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "entity": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "effect": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "label",
+                    "entity",
+                    "effect"
+                  ]
+                },
+                "minItems": 1
+              },
+              "scopes": {
+                "type": "array",
+                "items": {
+                  "type": "object",
+                  "additionalProperties": false,
+                  "properties": {
+                    "id": {
+                      "type": "string",
+                      "pattern": "^[a-z][a-z0-9-]{0,63}$"
+                    },
+                    "label": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "collection": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "controls": {
+                      "type": "array",
+                      "items": {
+                        "type": "string",
+                        "minLength": 1
+                      },
+                      "minItems": 1
+                    },
+                    "result_count": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "selection": {
+                      "type": "string",
+                      "minLength": 1
+                    }
+                  },
+                  "required": [
+                    "id",
+                    "label",
+                    "collection",
+                    "controls",
+                    "result_count",
+                    "selection"
+                  ]
+                },
+                "minItems": 1
+              },
+              "states": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "loading": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "empty": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "error": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "cancel": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "success": {
+                    "type": "string",
+                    "minLength": 1
+                  }
+                },
+                "required": [
+                  "loading",
+                  "empty",
+                  "error",
+                  "cancel",
+                  "success"
+                ]
+              },
+              "mobile": {
+                "type": "object",
+                "additionalProperties": false,
+                "properties": {
+                  "first_useful_object": {
+                    "type": "string",
+                    "minLength": 1
+                  },
+                  "order": {
+                    "type": "array",
+                    "items": {
+                      "type": "string",
+                      "minLength": 1
+                    },
+                    "minItems": 1
+                  },
+                  "touch_target_px": {
+                    "type": "integer",
+                    "minimum": 44
+                  }
+                },
+                "required": [
+                  "first_useful_object",
+                  "order",
+                  "touch_target_px"
+                ]
+              }
+            },
+            "required": [
+              "job",
+              "first_useful_entity",
+              "actions",
+              "scopes",
+              "states",
+              "mobile"
+            ]
+          },
+          "falsification_cases": {
+            "type": "array",
+            "items": {
+              "type": "object",
+              "additionalProperties": false,
+              "properties": {
+                "id": {
+                  "type": "string",
+                  "pattern": "^[a-z][a-z0-9-]{0,63}$"
+                },
+                "probe": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "expected": {
+                  "type": "string",
+                  "minLength": 1
+                },
+                "method": {
+                  "const": "prototype-observation"
+                },
+                "scope_ids": {
+                  "type": "array",
+                  "items": {
+                    "type": "string",
+                    "pattern": "^[a-z][a-z0-9-]{0,63}$"
+                  },
+                  "minItems": 1
+                }
+              },
+              "required": [
+                "id",
+                "probe",
+                "expected",
+                "method",
+                "scope_ids"
+              ]
+            },
+            "minItems": 1
+          }
+        },
+        "required": [
+          "id",
+          "name",
+          "source_file_ids",
+          "alternatives",
+          "chosen",
+          "scenario",
+          "falsification_cases"
+        ]
+      },
+      "minItems": 1
+    },
+    "assumptions": {
+      "type": "array",
+      "items": {
+        "type": "object",
+        "additionalProperties": false,
+        "properties": {
+          "id": {
+            "type": "string",
+            "pattern": "^[a-z][a-z0-9-]{0,63}$"
+          },
+          "statement": {
+            "type": "string",
+            "minLength": 1
+          },
+          "status": {
+            "enum": [
+              "unresolved",
+              "proposed",
+              "user-confirmed"
+            ]
+          },
+          "confirmation": {
+            "type": "object",
+            "additionalProperties": false,
+            "properties": {
+              "file_id": {
+                "type": "string",
+                "pattern": "^[a-z][a-z0-9-]{0,63}$"
+              },
+              "json_pointer": {
+                "type": "string",
+                "pattern": "^/"
+              },
+              "expected_value": {
+                "type": "string",
+                "minLength": 1
+              }
+            },
+            "required": [
+              "file_id",
+              "json_pointer",
+              "expected_value"
+            ]
+          }
+        },
+        "required": [
+          "id",
+          "statement",
+          "status"
+        ],
+        "allOf": [
+          {
+            "if": {
+              "properties": {
+                "status": {
+                  "const": "user-confirmed"
+                }
+              }
+            },
+            "then": {
+              "required": [
+                "confirmation"
+              ]
+            },
+            "else": {
+              "not": {
+                "required": [
+                  "confirmation"
+                ]
+              }
+            }
+          }
+        ]
+      },
+      "minItems": 1
+    }
+  },
+  "required": [
+    "version",
+    "study_id",
+    "applicability",
+    "scope",
+    "provenance",
+    "interviews",
+    "products",
+    "assumptions"
+  ],
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://product-ui-workbench.local/schemas/ux-discovery.schema.json",
+  "title": "Declared UX discovery packet; no automatic quality or chronology certification"
+}

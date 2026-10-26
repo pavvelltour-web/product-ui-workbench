@@ -1,0 +1,6 @@
+{
+  "$schema":"https://json-schema.org/draft/2020-12/schema","title":"Small typed job-based reusable source library",
+  "type":"object","required":["version","items","reference_pixels"],
+  "properties":{"version":{"const":"0.3.0"},"reference_pixels":{"type":"array","maxItems":0},"items":{"type":"array","minItems":1,"items":{"type":"object","required":["id","type","title","job","platform","states","stack","license","verification"],"properties":{"id":{"type":"string"},"type":{"enum":["component","pattern","example"]},"title":{"type":"string"},"job":{"type":"array","items":{"type":"string"}},"platform":{"type":"array","items":{"type":"string"}},"states":{"type":"array","items":{"type":"string"}},"stack":{"type":"array","items":{"type":"string"}},"license":{"type":"object","required":["spdx","notice","sha256"]},"verification":{"type":"object"}}}}},
+  "$comment":"Lookup additionally enforces unique ids, source/notice hash freshness, pointer containment and valid pattern component/example links. No fake component/browser/user acceptance is derived from source copying."
+}

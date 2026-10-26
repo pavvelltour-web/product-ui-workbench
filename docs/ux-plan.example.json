@@ -1,0 +1,116 @@
+{
+  "version": "1.0",
+  "study_id": "focus",
+  "screen_kind": "operations",
+  "intent": {
+    "statement": "Proposed: identify the next due open deal and open its next action.",
+    "basis": "proposed"
+  },
+  "attention": {
+    "primary": {
+      "content": "Overdue deal identity, due date and next action",
+      "reason": "Illustrative proposal: the next action helps this queue task more than an unexplained aggregate.",
+      "action": "Open the exact overdue deal"
+    },
+    "secondary": [
+      "Other open deals ordered by due date",
+      "Scoped count and amount"
+    ]
+  },
+  "grouping": [
+    {
+      "id": "next-action",
+      "contents": [
+        "Deal name",
+        "Next action",
+        "Due date"
+      ],
+      "inner_gap": 8,
+      "outer_gap": 24
+    }
+  ],
+  "typography": {
+    "page": {
+      "family": "Inter",
+      "size_px": 28,
+      "line_height_px": 36,
+      "weight": 650
+    },
+    "section": {
+      "family": "Inter",
+      "size_px": 18,
+      "line_height_px": 26,
+      "weight": 600
+    },
+    "entity": {
+      "family": "Inter",
+      "size_px": 16,
+      "line_height_px": 24,
+      "weight": 600
+    },
+    "body": {
+      "family": "Inter",
+      "size_px": 14,
+      "line_height_px": 20,
+      "weight": 400
+    },
+    "label": {
+      "family": "Inter",
+      "size_px": 14,
+      "line_height_px": 20,
+      "weight": 500
+    },
+    "meta": {
+      "family": "Inter",
+      "size_px": 12,
+      "line_height_px": 18,
+      "weight": 400
+    }
+  },
+  "controls": {
+    "family": "Search and select share44px height,1px border and8px radius.",
+    "search": "Labeled search above the same open-deal collection.",
+    "filter_scope": "Stage filter affects the visible open-deal queue; default is all open stages.",
+    "result_count": "Count is derived from the same filtered array; total scope stays explicit.",
+    "selection": "Opening one stable deal ID shows its name and action; closing restores the opener."
+  },
+  "chart": {
+    "present": false,
+    "reason": "The operational screen prioritizes the action queue; no chart is needed."
+  },
+  "mobile": {
+    "first_useful_object": "Overdue deal with next action and44px opener",
+    "expected_order": [
+      "Page context",
+      "First due action",
+      "Queue controls",
+      "Other deals"
+    ],
+    "text_min_px": 12,
+    "touch_target_px": 44
+  },
+  "interaction_checks": [
+    {
+      "id": "stage-value",
+      "kind": "selected-value-visible",
+      "target": "[data-testid=stage-filter] [data-slot=select-value]",
+      "viewports": [
+        "desktop",
+        "mobile"
+      ]
+    },
+    {
+      "id": "deal-open",
+      "kind": "open-region",
+      "trigger": "[data-testid=deal-d1]",
+      "target": "[role=dialog]",
+      "identity": "Sample Company",
+      "viewports": [
+        "desktop",
+        "mobile"
+      ],
+      "close": "Escape",
+      "focus_return": true
+    }
+  ]
+}
