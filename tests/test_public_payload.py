@@ -27,7 +27,8 @@ class PayloadTests(unittest.TestCase):
     def test_clone_metadata_private_and_environments_not_in_runtime(self):
         forbidden = ['.git/config', '.github/workflows/ci.yml', '.env', 'output/result.txt', '.venv/secret.txt',
                      'scripts/__pycache__/tool.pyc', 'docs/.env.local', 'library/node_modules/package/file.js',
-                     'references/private/reference.png', 'library/secrets/client.txt', 'docs/cert.pem']
+                     'references/private/reference.png', 'library/secrets/client.txt', 'docs/cert.pem',
+                     'examples/showcase/app/dist/generated.js']
         for name in forbidden:
             self.write(name, 'not distributed')
         self.seal()

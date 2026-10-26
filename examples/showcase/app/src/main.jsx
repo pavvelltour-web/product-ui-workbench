@@ -1,0 +1,15 @@
+import React from 'react';
+import {createRoot} from 'react-dom/client';
+import './base.css';
+const routes={'crm-lime':'hybrid-crm-01','crm-copper':'hybrid-crm-02','ai-mint':'hybrid-ai-01','ai-copper':'hybrid-ai-02'};
+const q=new URLSearchParams(location.search),example=Object.hasOwn(routes,q.get('example'))?q.get('example'):'crm-lime';
+const variant=routes[example],theme='dark',mode=['calibration','components'].includes(q.get('mode'))?q.get('mode'):'study';
+const product=example.startsWith('crm-')?'crm':'ai';
+Object.assign(document.documentElement.dataset,{variant,theme,product,family:'hybrid'});
+if(q.get('opaque')==='1'||matchMedia('(prefers-reduced-transparency: reduce)').matches)document.documentElement.dataset.opaque='true';
+document.title=`${example} — Product UI Workbench`;
+const modules=import.meta.glob('./products/*/*.jsx');
+const path=Object.keys(modules).find(p=>p.endsWith('/'+(product==='crm'?'CRM.jsx':'AI.jsx')));
+if(!path)throw new Error('Product module unavailable: '+product);
+const {default:Screen}=await modules[path]();
+createRoot(document.getElementById('root')).render(<Screen variant={variant} theme={theme} mode={mode}/>);

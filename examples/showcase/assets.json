@@ -1,0 +1,84 @@
+{
+  "version": 1,
+  "assets": [
+    {
+      "path": "examples/showcase/images/ai-copper-desktop.png",
+      "sha256": "19afccc682c08387fb6abbb5d5a3ed0ed7972685e52398cac726a02ba683bd90",
+      "bytes": 206661,
+      "kind": "png",
+      "rights": "Original authored interface screenshot; synthetic fixtures; MIT",
+      "width": 1440,
+      "height": 1299
+    },
+    {
+      "path": "examples/showcase/images/ai-copper-mobile.png",
+      "sha256": "2fd5cee4e717a9e9ce4a6578776bc6e600831d339bd4fc2c7a46ac4dcfcc6474",
+      "bytes": 179462,
+      "kind": "png",
+      "rights": "Original authored interface screenshot; synthetic fixtures; MIT",
+      "width": 390,
+      "height": 2464
+    },
+    {
+      "path": "examples/showcase/images/ai-mint-desktop.png",
+      "sha256": "cac67b77a8174653100cb212b7437a373ea49f7c16b12a7fc54d4837acfaf75b",
+      "bytes": 238748,
+      "kind": "png",
+      "rights": "Original authored interface screenshot; synthetic fixtures; MIT",
+      "width": 1440,
+      "height": 1306
+    },
+    {
+      "path": "examples/showcase/images/ai-mint-mobile.png",
+      "sha256": "b779769f391f14e372b92f39b63a5508e93c750d6bb19d578728b6ea92cc0382",
+      "bytes": 202657,
+      "kind": "png",
+      "rights": "Original authored interface screenshot; synthetic fixtures; MIT",
+      "width": 390,
+      "height": 2523
+    },
+    {
+      "path": "examples/showcase/images/crm-copper-desktop.png",
+      "sha256": "58a73139f5ec2e2c51c2b2353a0bdb1bb6d47641c1b60dd8276d7086b3323e77",
+      "bytes": 265977,
+      "kind": "png",
+      "rights": "Original authored interface screenshot; synthetic fixtures; MIT",
+      "width": 1440,
+      "height": 1207
+    },
+    {
+      "path": "examples/showcase/images/crm-copper-mobile.png",
+      "sha256": "c64335567a9bdee210b5edd232cf6f559113f21f0962b4b816ab8e7adaeabd3b",
+      "bytes": 251156,
+      "kind": "png",
+      "rights": "Original authored interface screenshot; synthetic fixtures; MIT",
+      "width": 390,
+      "height": 3131
+    },
+    {
+      "path": "examples/showcase/images/crm-lime-desktop.png",
+      "sha256": "9248ec0f9694d27a355f393025fa0a2780fa57634382a03a88516974382e1652",
+      "bytes": 331744,
+      "kind": "png",
+      "rights": "Original authored interface screenshot; synthetic fixtures; MIT",
+      "width": 1440,
+      "height": 1596
+    },
+    {
+      "path": "examples/showcase/images/crm-lime-mobile.png",
+      "sha256": "ffb47538602820800c4139b486a1086966e770c7e2348a149b8d2b3a07e17e7e",
+      "bytes": 274458,
+      "kind": "png",
+      "rights": "Original authored interface screenshot; synthetic fixtures; MIT",
+      "width": 390,
+      "height": 3264
+    },
+    {
+      "path": "examples/showcase/app/public/fonts/GolosText.ttf",
+      "sha256": "17bb58fb69aec2dfb047a2ebf52534023e9b688c97a6b7ac795b0a72912c2063",
+      "bytes": 184292,
+      "kind": "ttf",
+      "rights": "Golos Text Project Authors; SIL OFL-1.1; see app/public/fonts/GolosText-OFL.txt"
+    }
+  ]
+}

@@ -10,7 +10,7 @@ ROOT = Path(__file__).resolve().parents[1]
 FOLDERS = ('agents', 'docs', 'examples', 'library', 'licenses', 'references', 'schemas', 'scripts', 'tests')
 FILES = ('SKILL.md', 'README.md', 'README.en.md', 'LICENSE', 'NOTICE', 'NOTICE.md', 'workbench.json', '.gitignore', '.gitattributes', 'requirements-render.txt')
 INVENTORY = 'portable-manifest.json'
-EXCLUDED_DIRS = {'.git', '.github', '.venv', 'venv', 'env', 'node_modules', '__pycache__', '.pytest_cache', '.mypy_cache', 'output', 'outputs', 'runs', 'private', 'secrets'}
+EXCLUDED_DIRS = {'.git', '.github', '.venv', 'venv', 'env', 'node_modules', '__pycache__', '.pytest_cache', '.mypy_cache', 'output', 'outputs', 'dist', 'runs', 'private', 'secrets'}
 EXCLUDED_SUFFIXES = {'.pyc', '.pyo', '.pem', '.key', '.p12', '.pfx'}
 
 def sha(data: bytes) -> str:

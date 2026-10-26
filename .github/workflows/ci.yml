@@ -6,6 +6,19 @@ on:
 permissions:
   contents: read
 jobs:
+  showcase:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v7
+        with:
+          persist-credentials: false
+      - uses: actions/setup-node@v7
+        with:
+          node-version: '24'
+      - run: npm ci
+        working-directory: examples/showcase/app
+      - run: npm run build
+        working-directory: examples/showcase/app
   core:
     strategy:
       fail-fast: false
