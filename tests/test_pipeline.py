@@ -17,7 +17,7 @@ def png():
 
 class LoopTests(unittest.TestCase):
     def setUp(self):
-        self.temp = tempfile.TemporaryDirectory(); self.root = Path(self.temp.name)
+        self.temp = tempfile.TemporaryDirectory(); self.root = Path(self.temp.name).resolve()
         self.write('task.json',{'job':'Review synthetic pipeline','scope':'CRM fixture','factual_data':['Invented test values'],'interactions':['Open detail'],'constraints':['No network']})
         self.write('reference.png',png()); self.write('generated.html','<!doctype html><title>Synthetic fixture</title>'); self.write('render.png',png())
         self.analysis = {'id':'ref-one','canonical_url':'https://example.org/fixture','asset_path':'reference.png','asset_sha256':self.hash('reference.png'),'observed':{'observer':'fixture-observer','at':'2026-01-01T00:00:00Z','method':'actual-image-view'},'rights':{'purpose':'visual-analysis','status':'permitted','evidence':'Synthetic original test fixture'},'traits':[{'id':aspect,'aspect':aspect,'basis':'observed' if aspect!='responsive' else 'proposed','description':'Invented test trait '+aspect} for aspect in ASPECTS]}

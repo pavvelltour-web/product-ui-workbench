@@ -41,7 +41,24 @@ def timestamp(value):
     try: dt = datetime.fromisoformat(value.replace('Z', '+00:00'))
     except ValueError: raise GateError('Invalid ISO timestamp')
     require(dt.tzinfo is not None and dt <= datetime.now(timezone.utc), 'Timestamp must have timezone and cannot be in the future')
+def canonical_workspace(value, exists=True):
+    """Normalize a workspace once, before helpers compare canonical child paths.
+
+    Windows 8.3 names can resolve to a different spelling without being links.
+    Inspect the supplied lexical ancestors before resolving so real links and
+    reparse points remain rejected rather than disappearing during normalization.
+    """
+    raw = Path(value).expanduser().absolute()
+    for node in (raw, *raw.parents):
+        if node.exists() or node.is_symlink():
+            require(not node.is_symlink() and not getattr(node.lstat(), 'st_file_attributes', 0) & 0x400,
+                    'Symlink/reparse workspace ancestor rejected')
+    root = raw.resolve(strict=exists)
+    require(root != Path(root.anchor) and (not exists or root.is_dir()),
+            'Workspace must be an explicit non-root directory' + (' that exists' if exists else ''))
+    return root
 def safe(root, relative, exists=False):
+    """Resolve a child under a canonical root; callers normalize their root once."""
     value = str(relative)
     win, pos = PureWindowsPath(value), PurePosixPath(value.replace('\\', '/'))
     require(value and value not in ('.', './') and not win.drive and not win.is_absolute() and not pos.is_absolute() and '..' not in pos.parts, 'Unsafe path: expected workspace-relative file')
@@ -515,8 +532,7 @@ def main(argv=None):
         if command == 'render': p.add_argument('--source',required=True); p.add_argument('--source-manifest'); p.add_argument('--view-query',default=''); p.add_argument('--capture-record'); p.add_argument('--png',required=True,nargs='+'); p.add_argument('--generator',required=True)
         if command == 'review': p.add_argument('--record',required=True);p.add_argument('--historical-task',action='store_true')
     p = commands.add_parser('cleanup'); p.add_argument('--campaign',required=True)
-    args = parser.parse_args(argv); root = Path(args.workspace).resolve(strict=True)
-    require(root.is_dir() and root != Path(root.anchor), 'Workspace must be an existing explicit non-root directory')
+    args = parser.parse_args(argv); root = canonical_workspace(args.workspace)
     # Exclusive workspace lock prevents concurrent check-then-write budget consumption.
     lock = safe(root,'.pipeline-lock'); fd = None; owned = False
     try:

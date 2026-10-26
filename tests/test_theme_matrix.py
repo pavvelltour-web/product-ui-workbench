@@ -14,7 +14,7 @@ def png(w,h):
 
 class MatrixTests(unittest.TestCase):
  def setUp(self):
-  self.temp=tempfile.TemporaryDirectory();self.r=Path(self.temp.name);(self.r/'build').mkdir();(self.r/'build/index.html').write_text('Synthetic closure; not real browser execution');self.write('matrix.json',plan());self.write('manifest.json',{'root':'build','entry':'index.html','ownership':'active','files':[{'path':'index.html','sha256':self.pin('build/index.html')['sha256']}]});self.index={'version':'1.0','matrix_sha256':self.pin('matrix.json')['sha256'],'captures':[]};self.qa={'passed':True,'closure_unchanged':True,'matrix_sha256':self.pin('matrix.json')['sha256'],'source_manifest':self.pin('manifest.json'),'cases':[]}
+  self.temp=tempfile.TemporaryDirectory();self.r=Path(self.temp.name).resolve();(self.r/'build').mkdir();(self.r/'build/index.html').write_text('Synthetic closure; not real browser execution');self.write('matrix.json',plan());self.write('manifest.json',{'root':'build','entry':'index.html','ownership':'active','files':[{'path':'index.html','sha256':self.pin('build/index.html')['sha256']}]});self.index={'version':'1.0','matrix_sha256':self.pin('matrix.json')['sha256'],'captures':[]};self.qa={'passed':True,'closure_unchanged':True,'matrix_sha256':self.pin('matrix.json')['sha256'],'source_manifest':self.pin('manifest.json'),'cases':[]}
   for t in ['light','dark']:
    shots=[]
    for v,wh in plan()['concepts'][0]['viewports'].items():

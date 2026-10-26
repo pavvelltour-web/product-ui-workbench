@@ -1,6 +1,6 @@
 {
   "name": "product-ui-workbench",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "entry": "SKILL.md",
   "installed": false,
   "activated": false,
@@ -225,7 +225,7 @@
     },
     {
       "path": "library/manifest.json",
-      "sha256": "0dfad5b04b26fa69a91d6128ffdd19bca0f0a11244850dd7b63985bec18f3144",
+      "sha256": "b04e8ae4485902249515e33c58c862b9c1577d6ae6f72384786019d0eab5a269",
       "bytes": 42129
     },
     {
@@ -335,8 +335,8 @@
     },
     {
       "path": "scripts/demo.py",
-      "sha256": "6029036a50e1ac2daff80c7824928551f77fe0217fa175bebec2961535f4262b",
-      "bytes": 2899
+      "sha256": "844c62b0daa8ce50954a058e48296656bdfdb123482965d703873e927d666a97",
+      "bytes": 2700
     },
     {
       "path": "scripts/design_loop.py",
@@ -375,8 +375,8 @@
     },
     {
       "path": "scripts/pipeline.py",
-      "sha256": "00a9242f0a79bcbd9cf6524cd0976a4257a46b0e6a1210379a02e11d60949579",
-      "bytes": 50270
+      "sha256": "7dca9267c66e0cea608a4f1a0892460e609801a96f15a16fc6ba83bc4d32eda7",
+      "bytes": 51136
     },
     {
       "path": "scripts/render_web.py",
@@ -410,8 +410,8 @@
     },
     {
       "path": "tests/test_browser_probe.py",
-      "sha256": "2c3e060679a6f7dc03a8e54637a07215b937946d0c0ad16260d67d7d7680a559",
-      "bytes": 17893
+      "sha256": "f243c462125054a22345fb7e66840f3b272904900c7af863275381afd32892f8",
+      "bytes": 17923
     },
     {
       "path": "tests/test_closure.py",
@@ -420,13 +420,13 @@
     },
     {
       "path": "tests/test_demo.py",
-      "sha256": "b854fe467613329650fe70c112f87433076636327e42d23024bc7cbe1998de36",
-      "bytes": 4923
+      "sha256": "8a280c8fa42eaf1396f00a59f3a6810aac62eb5925763729767c696d5a2978b6",
+      "bytes": 4943
     },
     {
       "path": "tests/test_design_loop.py",
-      "sha256": "4b58afdbf23eddf5d305df384c0b15c048eead9b46e9b88ca5915960294ac325",
-      "bytes": 5180
+      "sha256": "a16e45ad3bb5a4e29f87931d73d482056d91de9f19c0a93e901245d52f8c6eaf",
+      "bytes": 5190
     },
     {
       "path": "tests/test_historical_review.py",
@@ -445,18 +445,18 @@
     },
     {
       "path": "tests/test_library.py",
-      "sha256": "4d2614f15a726a0e218248b8a9ed0542c51f7d0402a46375fcf8e4b771d9836a",
-      "bytes": 2951
+      "sha256": "d0165ab13011f765280f82a144729d3f2bc24ee98f99aeff2612146dac759ffb",
+      "bytes": 2961
     },
     {
       "path": "tests/test_mjs_renderer.py",
-      "sha256": "e5b58e0e46b3e652f3f22fc0eda96d02a30e7805c7a867680c11013474937add",
-      "bytes": 2197
+      "sha256": "a63bbdf500e489bfff0ff29e799768a63e30a3e02e474fe140b00faf39541778",
+      "bytes": 2207
     },
     {
       "path": "tests/test_package.py",
-      "sha256": "8406132933c3abd293cfc371f34885633fff8cfcc7bd1a1675c25d576d46f85b",
-      "bytes": 2234
+      "sha256": "16322e86b8707816f57a818d4c4641a296f8612ba6bfee7bd3d1676e28b215fa",
+      "bytes": 2244
     },
     {
       "path": "tests/test_pattern_catalog.py",
@@ -465,13 +465,13 @@
     },
     {
       "path": "tests/test_pattern_loop.py",
-      "sha256": "999e7d6c15d2c029e99ef39a780641fcc6640c8fdb31413efcd5599dea26ded8",
-      "bytes": 4345
+      "sha256": "e700443d5a3a6d1070bb5c8964fcd3d9229b3d24db1792a25195606480d0ae74",
+      "bytes": 4355
     },
     {
       "path": "tests/test_pipeline.py",
-      "sha256": "0278c0b4e793f4bdb300f2dbd39a8825ac68918785f5da6c477b816597e73c57",
-      "bytes": 13411
+      "sha256": "42871d4b960c161839503de63a6c43b9253009cb1d6bc0bfc35136cc8c693bdd",
+      "bytes": 13421
     },
     {
       "path": "tests/test_public_payload.py",
@@ -484,14 +484,19 @@
       "bytes": 4834
     },
     {
+      "path": "tests/test_short_paths.py",
+      "sha256": "a9faffd29f66af0c97cb8f0a41c6f9c620731828a4aee5746ec25f53a280cf11",
+      "bytes": 6543
+    },
+    {
       "path": "tests/test_task_amend.py",
       "sha256": "65a2a753de2caeccdcd0d1c8128e92da4d876cfd333bef467a8d82638165a710",
       "bytes": 3476
     },
     {
       "path": "tests/test_theme_matrix.py",
-      "sha256": "dcd0f9fb943fbf8b76b38d8d1c83f6fa228a83b4a64c66d040d6eb88e9ccfca9",
-      "bytes": 4938
+      "sha256": "d27f72755a98a6804108ef5a3626d0a22746faf42960fccc329a555053789c96",
+      "bytes": 4948
     },
     {
       "path": "tests/test_ux_contract.py",
@@ -505,7 +510,7 @@
     },
     {
       "path": "workbench.json",
-      "sha256": "a662c7855f2a1b09aad20e391d4650b74fda9c21e1abb40cc2cb02d57140c297",
+      "sha256": "ae1e26eff3b666def826cc5e197adc3ccf2bdb93f7ad86699f2c9b8a5cefa9ae",
       "bytes": 222
     }
   ]

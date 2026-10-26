@@ -19,7 +19,7 @@ class DemoTests(unittest.TestCase):
 
     def test_original_demo_is_complete_and_existing_workspace_is_preserved(self):
         with tempfile.TemporaryDirectory() as directory:
-            target=Path(directory)/'demo';report=self.generate(target)
+            target=Path(directory).resolve()/'demo';report=self.generate(target)
             self.assertEqual(report['browser'],'not-run')
             self.assertIn('not-run',report['reference_review'])
             manifest=json.loads((target/'inputs/build.json').read_text(encoding='utf-8'))
@@ -36,7 +36,7 @@ class DemoTests(unittest.TestCase):
             extensions_map={**SimpleHTTPRequestHandler.extensions_map,'.mjs':'text/javascript'}
             def log_message(self,*args):pass
         with tempfile.TemporaryDirectory() as directory:
-            target=Path(directory)/'demo';self.generate(target)
+            target=Path(directory).resolve()/'demo';self.generate(target)
             server=ThreadingHTTPServer(('127.0.0.1',0),partial(Quiet,directory=str(target/'generated/demo')))
             thread=Thread(target=server.serve_forever,daemon=True);thread.start()
             try:

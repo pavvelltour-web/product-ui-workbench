@@ -6,7 +6,7 @@ from pipeline import GateError
 import test_pipeline as fixtures
 class DesignLoopTests(unittest.TestCase):
  def setUp(self):
-  self.tmp=tempfile.TemporaryDirectory();self.r=Path(self.tmp.name)
+  self.tmp=tempfile.TemporaryDirectory();self.r=Path(self.tmp.name).resolve()
   for n in ['analysis','patterns']:(self.r/f'{n}.json').write_text('{}')
   (self.r/'prompt.md').write_text('Proposed layer, type, component and primary accent color adaptation. '*8)
   prepare(self.r,'abstract','analysis.json','patterns.json','prompt.md','ledger.json',1,source_root='generated')

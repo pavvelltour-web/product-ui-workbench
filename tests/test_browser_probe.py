@@ -38,7 +38,7 @@ class BrowserInteractionTests(unittest.TestCase):
     def setUpClass(cls):
         cls.chrome = require_browser()
         cls.temp = tempfile.TemporaryDirectory(prefix='workbench-interaction-')
-        cls.root = Path(cls.temp.name); source = cls.root / 'build'; source.mkdir()
+        cls.root = Path(cls.temp.name).resolve(); source = cls.root / 'build'; source.mkdir()
         html = '''<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>Actual interaction fixture</title>
 <style>body{font:16px Arial;padding:20px}button{font:14px Arial;min-height:44px}dialog{font:16px Arial;width:260px}.hidden{display:none}</style></head><body>
 <h1>Fixture</h1><button aria-label="All stages"><span data-slot="select-value">Все этапы</span><span id="hidden-value" class="hidden">Hidden text</span></button>
@@ -87,7 +87,7 @@ class BrowserInteractionTests(unittest.TestCase):
     def test_secondary_selected_value_is_revealed_without_claiming_initial_fold(self):
         # Own closure: never mutate the class fixture or its pinned manifest.
         with tempfile.TemporaryDirectory(prefix='workbench-offscreen-') as name:
-            root = Path(name); source = root / 'build'; source.mkdir()
+            root = Path(name).resolve(); source = root / 'build'; source.mkdir()
             html = (self.root / 'build/index.html').read_text(encoding='utf-8')
             html = html.replace('<h1>Fixture</h1>', '<h1>Fixture</h1><div style="height:1200px" aria-hidden="true"></div>')
             (source / 'index.html').write_text(html, encoding='utf-8')
@@ -147,7 +147,7 @@ class NativeSelectBrowserTests(unittest.TestCase):
     def setUpClass(cls):
         cls.chrome = require_browser()
         cls.temp = tempfile.TemporaryDirectory(prefix='workbench-native-select-')
-        cls.root = Path(cls.temp.name)
+        cls.root = Path(cls.temp.name).resolve()
         source = cls.root / 'build'
         source.mkdir()
         html = '''<!doctype html><html><head><meta name="viewport" content="width=device-width,initial-scale=1"><title>Native select fixture</title>

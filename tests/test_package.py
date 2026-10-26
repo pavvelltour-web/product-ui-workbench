@@ -11,7 +11,7 @@ ROOT=Path(__file__).resolve().parents[1]
 class PackageTests(unittest.TestCase):
     def test_portable_readback_and_extracted_cli(self):
         with tempfile.TemporaryDirectory() as name:
-            temp=Path(name); archive=temp/'portable.zip'
+            temp=Path(name).resolve(); archive=temp/'portable.zip'
             result=subprocess.run([sys.executable,str(ROOT/'scripts/package.py'),'--out',str(archive)],capture_output=True,text=True)
             self.assertEqual(result.returncode,0,result.stdout+result.stderr)
             with zipfile.ZipFile(archive) as package:

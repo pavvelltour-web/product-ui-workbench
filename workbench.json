@@ -1,6 +1,6 @@
 {
   "name": "product-ui-workbench",
-  "version": "0.11.0",
+  "version": "0.11.1",
   "description": "A reference-led product design skill with portable library, render-review loop and evidence tools.",
   "license": "MIT",
   "entry": "SKILL.md"

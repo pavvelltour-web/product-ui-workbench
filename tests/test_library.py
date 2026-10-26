@@ -4,7 +4,7 @@ import shutil,subprocess,sys,tempfile,unittest
 ROOT=Path(__file__).resolve().parents[1]
 class LibraryTests(unittest.TestCase):
     def setUp(self):
-        self.temp=tempfile.TemporaryDirectory();self.root=Path(self.temp.name);self.package=self.root/'plugin'
+        self.temp=tempfile.TemporaryDirectory();self.root=Path(self.temp.name).resolve();self.package=self.root/'plugin'
         shutil.copytree(ROOT,self.package,ignore=shutil.ignore_patterns('__pycache__','*.pyc'))
         self.run=self.root/'run';self.run.mkdir()
     def tearDown(self):self.temp.cleanup()

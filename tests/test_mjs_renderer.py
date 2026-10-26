@@ -10,7 +10,7 @@ class ModuleMimeTest(unittest.TestCase):
     def test_module_and_import_execute_despite_wrong_os_mime(self):
         chrome=require_browser()
         with tempfile.TemporaryDirectory(prefix='workbench-mjs-') as temp:
-            root=Path(temp);source=root/'generated/module';source.mkdir(parents=True)
+            root=Path(temp).resolve();source=root/'generated/module';source.mkdir(parents=True)
             (source/'index.html').write_text('<!doctype html><html><head><title>Not executed</title></head><body><h1>Loading</h1><script type="module" src="main.mjs"></script></body></html>',encoding='utf-8')
             (source/'main.mjs').write_text("import { message } from './part.mjs'; document.title=message; document.querySelector('h1').textContent=message;",encoding='utf-8')
             (source/'part.mjs').write_text("export const message='Module and imported module executed';",encoding='utf-8')

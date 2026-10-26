@@ -11,7 +11,7 @@ from pipeline import GateError
 class PatternEvidenceTests(unittest.TestCase):
     def setUp(self):
         self.temp = tempfile.TemporaryDirectory()
-        self.root = Path(self.temp.name)
+        self.root = Path(self.temp.name).resolve()
         (self.root/'dom.json').write_text('{"selector":"button","height":"36px"}')
         self.pin = {'path':'dom.json', 'sha256':hashlib.sha256((self.root/'dom.json').read_bytes()).hexdigest()}
         self.packet = {'version':'1.0','sources':[{'id':'geist','canonical_url':'https://vercel.com/geist/button','rights':'unknown-private','kind':'component-ui','app':'Geist','platform':'web','visible_state':'default','viewed':True,'observer':'researcher','evidence':self.pin}], 'patterns':[{'id':'button-rhythm','source_id':'geist','role':'component','kind':'measured-code','observation':'Medium button is 36 px tall.','directive':'Use 36 px controls for dense desktop toolbar, 44 px touch targets.','suitable_for':'dense desktop navigation','unsuitable_for':'unmodified phone touch target','selector':'button[data-size=medium]','property':'height','value':'36px','measurement_evidence':self.pin}],'selected_pattern_ids':['button-rhythm']}

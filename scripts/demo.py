@@ -1,19 +1,16 @@
 """Create a new original offline example; optionally capture actual browser PNGs."""
 from pathlib import Path
 import argparse, json, shutil, sys
-from pipeline import GateError, closure_files, validate_closure, atomic
+from pipeline import GateError, closure_files, validate_closure, atomic, canonical_workspace
 
 ROOT = Path(__file__).resolve().parents[1]
 
 def create(workspace, chrome=None):
-    target = Path(workspace).expanduser().absolute()
+    target = canonical_workspace(workspace, exists=False)
     if target.exists():
         raise ValueError('Use a new demo directory; existing work is preserved')
     if target == Path(target.anchor) or target.is_relative_to(ROOT) or ROOT.is_relative_to(target):
         raise ValueError('Demo must be a separate non-root workspace outside the skill')
-    for parent in target.parents:
-        if parent.is_symlink() or (parent.exists() and getattr(parent.lstat(), 'st_file_attributes', 0) & 0x400):
-            raise ValueError('Linked workspace ancestors are not supported')
     target.mkdir(parents=True, exist_ok=False)
     app = target / 'generated/demo'
     app.mkdir(parents=True)
