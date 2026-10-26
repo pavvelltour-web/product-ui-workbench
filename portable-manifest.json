@@ -135,8 +135,8 @@
     },
     {
       "path": "examples/showcase/app/public/fonts/GolosText-OFL.txt",
-      "sha256": "ff532f9e8789f09a9fdffc3c0954eedfb0a48be77b2e2eb90f5f82e4f347f50c",
-      "bytes": 4394
+      "sha256": "270e8bfc5b8f26a2ca1433cf4d65d6d93771d2131715a57460702c0df4057c06",
+      "bytes": 4393
     },
     {
       "path": "examples/showcase/app/public/fonts/GolosText.ttf",
@@ -205,13 +205,13 @@
     },
     {
       "path": "examples/showcase/app/src/products/ai/AI.jsx",
-      "sha256": "2923cc9a1a7ce60ec13faebaaafee4f6565ff36c4cd89f64d7315edd84556bd9",
-      "bytes": 40114
+      "sha256": "50bfb7e0c654aa4581ddf0bbbb7cf94bf03c1358fba95441b5c44a742c75e996",
+      "bytes": 40113
     },
     {
       "path": "examples/showcase/app/src/products/ai/ai.css",
-      "sha256": "91875c851ec9d96bd63fe6aff3b783f8dfe7d1521db0d8fab37a4cdf421db0b3",
-      "bytes": 64154
+      "sha256": "453bff8773de471df96e0ace15f9c0c83688ea2a68314d405627ff91f14894f6",
+      "bytes": 64153
     },
     {
       "path": "examples/showcase/app/src/products/ai/data.js",

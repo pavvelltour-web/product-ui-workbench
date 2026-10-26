@@ -155,4 +155,3 @@ return <main className={'ai14 ai14-'+variant+' ai14-mode-'+mode} data-current-th
 {feedback&&<div className='ai14-feedback' data-testid='operation-feedback' role='status'><I as={Check}/><T role='body'>{feedback}</T><Button className='ai14-clear' variant='ghost' aria-label='Закрыть сообщение' onClick={()=>setFeedback('')}><I as={X}/></Button></div>}
 {content}<footer className='ai14-footer'><span><i/><M>Синтетические данные · локальный прототип</M></span><M>Контекст до действия</M></footer></div></div>{Detail}</main>
 }
-

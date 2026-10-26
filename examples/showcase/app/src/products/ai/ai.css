@@ -77,4 +77,3 @@ flex:0 0 auto;min-height:46px;height:46px}
 .ai15-audit-ledger>div{grid-template-columns:62px 24px minmax(0,1fr)}
 .ai15-audit-ledger>div>span:first-child{white-space:nowrap;overflow-wrap:normal;word-break:normal}
 .ai15-audit-ledger>div:not(:last-child):after{left:83px}
-
